@@ -1,9 +1,9 @@
 <?php
-namespace model;
+namespace OC\Test\Model;
 
 require_once("model/Manager.php"); // Vous n'alliez pas oublier cette ligne ? ;o)
 
-class CommentManager
+class CommentManager extends Manager
 {
     public function getComments($postId)
     {
@@ -22,5 +22,19 @@ class CommentManager
 
         return $affectedLines;
     }
+    
+    /**
+    * Function to return comment given an id
+    * @param int $id
+    * @return comment 
+    */
+    public function getComment($id)
+    {
+        $db = $this->dbConnect();
+        $comment = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id = ? ');
+        $comments->execute(array($id));
+
+        return $comment;
+    }    
 
 }

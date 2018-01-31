@@ -1,7 +1,16 @@
 <?php
-    
+/**
+ * This is the router
+ * 
+ * @version 1.0.0 Blog
+ * @author eddy
+ * @since 1.0.0 introduced
+ */
+
+// https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
+
 require('controller/frontend.php');
-    
+        
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
@@ -16,6 +25,15 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'comment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                comment();
+            }
+            else {
+                // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
+                throw new Exception('Aucun identifiant de commentaire envoyé');
+            }
+        }        
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {

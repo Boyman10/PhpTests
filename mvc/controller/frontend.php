@@ -1,15 +1,26 @@
 <?php    
+/**
+* This is the Contoller
+*
+* This is the controller part of an MVC pattern
+*
+* @see Markdown
+*
+*/
+
+
 // Chargement des classes
 require_once('model/PostManager.php');
 require_once('model/CommentManager.php');
-//use \model\PostManager;
-//use \model\CommentManager;
+
+use \OC\Test\Model\PostManager;
+use \OC\Test\Model\CommentManager;
 
 function listPosts()
 {
-    $postManager = new \model\PostManager();
+    $postManager = new PostManager();
 
-    $commentManager = new \model\CommentManager();
+    $commentManager = new CommentManager();
     $posts = $postManager->getPosts();
     require('view/frontend/listPostsView.php');
 }
@@ -23,6 +34,17 @@ function post()
     $comments = $commentManager->getComments($_GET['id']);
 
     require('view/frontend/postView.php');
+}
+/**
+* Function retrieving the comment for edition
+*/
+function comment()
+{
+    $commentManager = new CommentManager();
+
+    $comment = $commentManager->getComment($_GET['id']);
+
+    require('view/frontend/commentView.php');
 }
 
 function addComment($postId, $author, $comment)

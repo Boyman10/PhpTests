@@ -1,5 +1,5 @@
 <?php
-namespace model; // La classe sera dans ce namespace
+namespace OC\Test\Model; // La classe sera dans ce namespace
 
 require_once("model/Manager.php"); // Vous n'alliez pas oublier cette ligne ? ;o)
 
