@@ -8,7 +8,7 @@
 * @todo - implement hydratation
 *
 
-namespace \OC\Test\Model\Entity
+namespace \OC\Test\Model\Entity;
 
 class Comment extends Model
 {
