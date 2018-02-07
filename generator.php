@@ -2,6 +2,18 @@
 /**
  * Function and test for the generator feature
  * A generator is an instance of class implementing iterator
+ 
+ Les générateurs sont une façon simple de créer des itérateurs.
+
+Toute fonction contenant le mot-cléyield est automatiquement considéré comme un générateur.
+
+Un générateur peut renvoyer une valeur simple mais aussi une clé qui lui sera associée.
+
+Pour renvoyer une référence via unyield, il faut placer un & avant le nom du générateur.
+
+La méthodesend permet de créer des coroutines, ce qui consiste à consommer des valeurs et non à en retourner.
+
+
  */
 echo '<h2>First example</h2><p>Check the source code...</p>';
 /**
@@ -98,4 +110,27 @@ echo '</pre>';
 
 
 
+?>
+<p>
+New test :
+</p>
+<?php
+function generator1()
+{
+  echo (yield 'Hello world !');
+  echo yield;
+}
 
+$gen = generator1();
+
+ // On envoie « Message 1 »
+// PHP va donc l'afficher grâce au premier echo du générateur
+$gen->send('Message 1');
+
+// On envoie « Message 2 »
+// PHP reprend l'exécution du générateur et affiche le message grâce au 2ème echo
+$gen->send('Message 2');
+
+// On envoie « Message 3 »
+// La fonction générateur s’était déjà terminée, donc rien ne se passe
+$gen->send('Message 3');
