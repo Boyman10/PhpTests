@@ -18,20 +18,22 @@ class Page extends ApplicationComponent
 
   public function getGeneratedPage()
   {
-    if (!file_exists($this->contentFile))
-    {
-      throw new \RuntimeException('La vue spécifiée n\'existe pas');
-    }
-
-    extract($this->vars);
-
-    ob_start();
+      if (!file_exists($this->contentFile))
+      {
+          throw new \RuntimeException('La vue spécifiée n\'existe pas');
+      }
+      
+      $user = $this->app->user();
+      
+      extract($this->vars);
+      
+      ob_start();
       require $this->contentFile;
-    $content = ob_get_clean();
-
-    ob_start();
+      $content = ob_get_clean();
+      
+      ob_start();
       require __DIR__.'/../../App/'.$this->app->name().'/Templates/layout.php';
-    return ob_get_clean();
+      return ob_get_clean();
   }
 
   public function setContentFile($contentFile)

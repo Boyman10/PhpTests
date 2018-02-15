@@ -4,7 +4,7 @@ namespace OCFram;
 class HTTPRequest extends ApplicationComponent
 {
     
-    public function HTTPRequest(Application app) 
+    public function HTTPRequest(Application $app) 
     {
         parent::__construct($app);
     }

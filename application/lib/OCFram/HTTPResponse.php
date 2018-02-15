@@ -5,7 +5,7 @@ class HTTPResponse extends ApplicationComponent
 {
   protected $page;
 
-  public function HTTPResponse(Application app)
+  public function HTTPResponse(Application $app)
   {
       parent::__construct($app);
   }
