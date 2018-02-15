@@ -1,8 +1,14 @@
 <?php
 namespace OCFram;
 
-class HTTPRequest
+class HTTPRequest extends ApplicationComponent
 {
+    
+    public function HTTPRequest(Application app) 
+    {
+        parent::__construct($app);
+    }
+    
   public function cookieData($key)
   {
     return isset($_COOKIE[$key]) ? $_COOKIE[$key] : null;
