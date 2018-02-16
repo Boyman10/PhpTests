@@ -32,7 +32,7 @@ abstract class Application
         foreach ($routes as $route)
         {
             $vars = [];
-            
+
             // On regarde si des variables sont présentes dans l'URL.
             if ($route->hasAttribute('vars'))
             {
@@ -85,5 +85,10 @@ abstract class Application
     public function user()
     {
         return $this->user;
+    }
+    
+    public function config()
+    {
+        return $this->config;
     }
 }
