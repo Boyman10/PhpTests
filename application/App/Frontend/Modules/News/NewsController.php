@@ -79,4 +79,6 @@ class NewsController extends BackController
           $this->page->addVar('comment', $comment);
       }
   }
+  
+
 }
