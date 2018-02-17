@@ -10,6 +10,8 @@ use \OCFram\TextField;
 
 use \FormBuilder\CommentFormBuilder;
 use \OCFram\FormHandler;
+use \Cache\NewsCacheManager; // load cache manager for news-id... in executeShow(HTTPRequest $request)
+
 
 class NewsController extends BackController
 {

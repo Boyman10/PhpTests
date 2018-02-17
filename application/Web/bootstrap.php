@@ -23,6 +23,8 @@ $entityLoader->register();
 $formBuilderLoader = new SplClassLoader('FormBuilder', __DIR__.'/../lib/vendors');
 $formBuilderLoader->register();
 
+$cacheLoader = new SplClassLoader('Cache', __DIR__.'/../lib/vendors');
+cacheLoader->register();
 
 // Il ne nous suffit plus qu'à déduire le nom de la classe et à l'instancier
 $appClass = 'App\\'.$_GET['app'].'\\'.$_GET['app'].'Application';
