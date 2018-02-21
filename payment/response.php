@@ -13,28 +13,57 @@ echo '<h1>testing response from server</h1>';
  * CADBFC1C00B004B7C45&ipclient=127%2e0%2e0%2e1&originetr=FRA&ver
  * es=Y&pares=Y
  * url_retour_ok
+ * 
+ * TPE=6740945&date=06%2f02%2f2018%5fa%5f19%3a12%3a23&montant=748EUR
+ * &reference=000000010+%2d+test+retest
+ * &MAC=0567BAB589F9DE95881BE15630A7ED32906CC32E
+ * &texte-libre=CARTEVISA
+ * &code-retour=payetest&cvx=oui
+ * &vld=1219&brand=VI
+ * &status3ds=4
+ * &numauto=000000
+ * &originecb=FRA
+ * &bincb=000001
+ * &hpancb=1E70711279EBA3DFBBD0C445A26FAA19B9E461FB
+ * &ipclient=92%2e146%2e10%2e218&originetr=FRA&veres=&pares=&modepaiement=CB
  */ 
 
 $post_vars = array(
     "TPE" => '6740945',
-    "date" => '29/01/2018:07:55:54',
-    "montant" => '105',
-    "reference" => '000000001',
-    "MAC" => 'EF285A8FEAF0E4D19ED0365A0C49F72AC247D692',
-    "text-libre" => '',
+    "date" => '06%2f02%2f2018%5fa%5f19%3a12%3a23',
+    "montant" => '748EUR',
+    "reference" => '000000014+%2d+test+retest',
+    "MAC" => '0567BAB589F9DE95881BE15630A7ED32906CC32E',
+    "text-libre" => 'CARTEVISA',
     "code-retour" => 'payetest', //payetest paiement Annulation
     "cvx" => 'oui',
-    "vld" => '1208', // date validite
+    "vld" => '1219', // date validite
     "brand" => 'VI', // visa... AM CB MC VI na
-    'status3ds' => '-1',
+    'status3ds' => '4',
     'numauto' => '',
-    'ipclient' => '',
+    'ipclient' => '92%2e146%2e10%2e218',
     'originetr' => 'FRA',
     'veres' => 'Y',
     'pares' => 'Y'
     
 );
 
+/*
+MAC:d5f49745c11a464b084e2c48e7fff4f59538374d
+PBX_DEVISE:978
+TPE:6740945
+date:09/02/2018:16:11:58
+lgue:FR
+mail:cacomme@hotmail.com
+montant:184EUR
+reference:000000014 - test retest
+societe:mcbl
+texte-libre:CARTEVISA
+url_retour:https://motoculture-saintmartindeseignanx.fr/pbxep/payment/ipn/?reference=000000014 - test retest
+url_retour_err:https://motoculture-saintmartindeseignanx.fr/pbxep/payment/failed/?reference=000000014 - test retest?reference=000000014 - test retest
+url_retour_ok:https://motoculture-saintmartindeseignanx.fr/pbxep/payment/success/?reference=000000014 - test retest
+
+*/
 $ch = curl_init();
 
 //curl_setopt($ch, CURLOPT_URL,"http://testmagento.com/pbxep/payment/success/");
