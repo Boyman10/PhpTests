@@ -20,14 +20,14 @@ class NewsController extends BackController
     $nombreNews = $this->app->config()->get('nombre_news');
     $nombreCaracteres = $this->app->config()->get('nombre_caracteres');
     
-    // On ajoute une définition pour le titre.
-    $this->page->addVar('title', 'Liste des '.$nombreNews.' dernières news');
+    // On ajoute une dï¿½finition pour le titre.
+    $this->page->addVar('title', 'Liste des '.$nombreNews.' derniï¿½res news');
     
-    // On récupère le manager des news.
+    // On rï¿½cupï¿½re le manager des news.
     $manager = $this->managers->getManagerOf('News');
     
-    // Cette ligne, vous ne pouviez pas la deviner sachant qu'on n'a pas encore touché au modèle.
-    // Contentez-vous donc d'écrire cette instruction, nous implémenterons la méthode ensuite.
+    // Cette ligne, vous ne pouviez pas la deviner sachant qu'on n'a pas encore touchï¿½ au modï¿½le.
+    // Contentez-vous donc d'ï¿½crire cette instruction, nous implï¿½menterons la mï¿½thode ensuite.
     $listeNews = $manager->getList(0, $nombreNews);
     
     foreach ($listeNews as $news)
@@ -41,12 +41,16 @@ class NewsController extends BackController
       }
     }
     
-    // On ajoute la variable $listeNews à la vue.
+    // On ajoute la variable $listeNews ï¿½ la vue.
     $this->page->addVar('listeNews', $listeNews);
   }
   
   public function executeShow(HTTPRequest $request)
   {
+      
+      // Let's retrieve a news from its Id if there is a cache version of this one :
+      //$news = $this->managers->get
+      
       $news = $this->managers->getManagerOf('News')->getUnique($request->getData('id'));
       
       if (empty($news))
@@ -61,7 +65,7 @@ class NewsController extends BackController
   
   public function executeInsertComment(HTTPRequest $request)
   {
-      // Si le formulaire a été envoyé.
+      // Si le formulaire a ï¿½tï¿½ envoyï¿½.
       if ($request->method() == 'POST')
       {
           $comment = new Comment([
@@ -83,7 +87,7 @@ class NewsController extends BackController
       
       if ($formHandler->process())
       {
-          $this->app->user()->setFlash('Le commentaire a bien été ajouté, merci !');
+          $this->app->user()->setFlash('Le commentaire a bien ï¿½tï¿½ ajoutï¿½, merci !');
           $this->app->httpResponse()->redirect('news-'.$request->getData('news').'.html');
       }
       
