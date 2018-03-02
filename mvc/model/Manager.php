@@ -15,7 +15,7 @@ class Manager
     protected function dbConnect()
     {
         /** @var PDO $db contains the database connection. */
-        $db = new \PDO('mysql:host=localhost;dbname=test;charset=utf8', 'test', '1234');
+        $db = new \PDO('mysql:host=localhost;dbname=test;charset=utf8', 'test', 'debian');
         return $db;
     }
 }

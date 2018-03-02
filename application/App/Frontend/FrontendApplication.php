@@ -12,6 +12,12 @@ class FrontendApplication extends Application
     $this->name = 'Frontend';
   }
 
+  /**
+   * Obtention du contrôleur grâce à la méthode parente getController().
+   * Exécution du contrôleur.
+   * Assignation de la page créée par le contrôleur à la réponse.
+   * Envoi de la réponse.
+   */
   public function run()
   {
     $controller = $this->getController();
