@@ -10,13 +10,12 @@ use \OCFram\TextField;
 
 use \FormBuilder\CommentFormBuilder;
 use \OCFram\FormHandler;
-use \Cache\NewsCacheManager; // load cache manager for news-id... in executeShow(HTTPRequest $request)
-
 
 class NewsController extends BackController
 {
   public function executeIndex(HTTPRequest $request)
   {
+       
     $nombreNews = $this->app->config()->get('nombre_news');
     $nombreCaracteres = $this->app->config()->get('nombre_caracteres');
     
@@ -25,9 +24,7 @@ class NewsController extends BackController
     
     // On r�cup�re le manager des news.
     $manager = $this->managers->getManagerOf('News');
-    
-    // Cette ligne, vous ne pouviez pas la deviner sachant qu'on n'a pas encore touch� au mod�le.
-    // Contentez-vous donc d'�crire cette instruction, nous impl�menterons la m�thode ensuite.
+
     $listeNews = $manager->getList(0, $nombreNews);
     
     foreach ($listeNews as $news)
