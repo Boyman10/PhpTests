@@ -26,26 +26,20 @@ abstract class BackController extends ApplicationComponent
         $this->setModule($module);
         $this->setAction($action);
         $this->setView($action);
-        
-        // Adding cache handling
-        $this->setCache($action);
     }
 
     public function execute()
     {
-        if (!file_exists($this->cache)) {
-            
-            $method = 'execute' . ucfirst($this->action);
-            
-            if (! is_callable([
-                $this,
-                $method
-            ])) {
-                throw new \RuntimeException('L\'action "' . $this->action . '" n\'est pas d�finie sur ce module');
-            }
-            
-            $this->$method($this->app->httpRequest());
+        $method = 'execute' . ucfirst($this->action);
+        
+        if (! is_callable([
+            $this,
+            $method
+        ])) {
+            throw new \RuntimeException('L\'action "' . $this->action . '" n\'est pas d�finie sur ce module');
         }
+        
+        $this->$method($this->app->httpRequest());
     }
 
     public function page()
@@ -88,7 +82,7 @@ abstract class BackController extends ApplicationComponent
      */
     public function setCache($cache)
     {
-        if (! is_string($cache) || empty($cache)) {
+        if (!is_string($cache) || empty($cache)) {
             throw new \InvalidArgumentException('Le cache doit �tre une chaine de caract�res valide');
         }
         
@@ -99,7 +93,7 @@ abstract class BackController extends ApplicationComponent
         }
         
         // There is a match
-        if (empty($cachefile) || !is_string($cachefile)) {
+        if (empty($cachefile) || ! is_string($cachefile)) {
             // Generate a new file from timestamp :
             $cachefile = $path . '-' . time() . '.htm';
         }
