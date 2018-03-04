@@ -20,8 +20,9 @@
       <nav>
         <ul>
           <li><a href="/application/Web/">Accueil</a></li>
-          <?php if ($user->isAuthenticated()) { ?>
           <li><a href="/application/Web/admin/">Admin</a></li>
+          <?php if ($user->isAuthenticated()) { ?>
+          
           <li><a href="/application/Web/admin/news-insert.html">Ajouter une news</a></li>
           <?php } ?>
         </ul>
