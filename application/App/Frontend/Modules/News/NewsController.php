@@ -50,16 +50,22 @@ class NewsController extends BackController
         
         // Let's retrieve a news from its Id if there is a cache version of this one :
         // $news = $this->managers->get
-        $news = $this->managers->getManagerOf('News')->getUnique($request->getData('id'));
+        // Adding cache handling
+        $this->setCache("news-" . $request->getData('id'));
         
-        if (empty($news)) {
-            $this->app->httpResponse()->redirect404();
+        if (! file_exists($this->cache)) {
+            
+            $news = $this->managers->getManagerOf('News')->getUnique($request->getData('id'));
+            
+            if (empty($news)) {
+                $this->app->httpResponse()->redirect404();
+            }
+            
+            $this->page->addVar('title', $news->titre());
+            $this->page->addVar('news', $news);
+            $this->page->addVar('comments', $this->managers->getManagerOf('Comments')
+                ->getListOf($news->id()));
         }
-        
-        $this->page->addVar('title', $news->titre());
-        $this->page->addVar('news', $news);
-        $this->page->addVar('comments', $this->managers->getManagerOf('Comments')
-            ->getListOf($news->id()));
     }
 
     public function executeInsertComment(HTTPRequest $request)

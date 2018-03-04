@@ -4,6 +4,7 @@ namespace OCFram;
 
 /**
  * abstract class handling the cache system of OC Framework
+ * @deprecated
  */
 abstract class Cache 
 {

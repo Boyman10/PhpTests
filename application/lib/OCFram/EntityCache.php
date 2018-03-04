@@ -5,6 +5,7 @@ namespace OCFram;
  * EntityCache class to store an entity object within a temp file
  * @version 1.0.0
  * @author boy
+ * @deprecated TO BE REMOVED
  */
 class EntityCache extends Cache
 {
