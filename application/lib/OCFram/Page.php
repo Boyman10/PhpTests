@@ -1,12 +1,14 @@
 <?php
 namespace OCFram;
 
+require __DIR__.'/../lib/vendors/smarty-3.1.30/libs/Smarty.class.php';
+
 /**
  * Handling page content here
- * Adding cache
+ * Adding cache management
  * 
  * @version 1.0.12
- *          @updated 03-03-2018
+ * @updated 03-03-2018
  * @author boy
  */
 class Page extends ApplicationComponent
@@ -30,6 +32,17 @@ class Page extends ApplicationComponent
 
     public function getGeneratedPage()
     {
+        // Check if we are dealing with Smarty :
+        if (substr($this->contentFile,-3) == 'tpl') {
+            
+            $smarty = new Smarty();
+            return $smarty->display($this->contentFile);
+            
+            
+            
+        }
+        
+        
         // Check availability of cache page
         if (file_exists($this->cachePage)) {
             ob_start();

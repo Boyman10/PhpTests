@@ -96,4 +96,16 @@ class NewsController extends BackController
         $this->page->addVar('form', $form->createView());
         $this->page->addVar('title', 'Ajout d\'un commentaire');
     }
+    
+    /**
+     * Smarty template engine testing
+     * @version 1
+     * @author boy
+     */
+    public function executeSmarty(HTTPRequest $request)
+    {
+        // no rendering so far :)
+        
+        
+    }
 }
