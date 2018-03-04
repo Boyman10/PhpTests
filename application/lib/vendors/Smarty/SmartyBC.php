@@ -1,4 +1,6 @@
 <?php
+namespace Smarty;
+
 /**
  * Project:     Smarty: the PHP compiling template engine
  * File:        SmartyBC.class.php
@@ -28,7 +30,7 @@
 /**
  * @ignore
  */
-require_once(dirname(__FILE__) . '/Smarty.class.php');
+require_once(dirname(__FILE__) . '/Smarty.php');
 
 /**
  * Smarty Backward Compatibility Wrapper Class

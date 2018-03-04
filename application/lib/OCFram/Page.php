@@ -1,7 +1,7 @@
 <?php
 namespace OCFram;
 
-require __DIR__.'/../lib/vendors/smarty-3.1.30/libs/Smarty.class.php';
+use \Smarty\Smarty;
 
 /**
  * Handling page content here
@@ -35,6 +35,7 @@ class Page extends ApplicationComponent
         // Check if we are dealing with Smarty :
         if (substr($this->contentFile,-3) == 'tpl') {
             
+           
             $smarty = new Smarty();
             return $smarty->display($this->contentFile);
             

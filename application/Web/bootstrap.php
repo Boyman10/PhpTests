@@ -24,6 +24,10 @@ $entityLoader->register();
 $formBuilderLoader = new SplClassLoader('FormBuilder', __DIR__.'/../lib/vendors');
 $formBuilderLoader->register();
 
+// Loading our template engine
+$smartyLoader = new SplClassLoader('Smarty',__DIR__.'/../lib/vendors');
+$smartyLoader->register();
+
 
 // Il ne nous suffit plus qu'� d�duire le nom de la classe et � l'instancier
 $appClass = 'App\\'.$_GET['app'].'\\'.$_GET['app'].'Application';

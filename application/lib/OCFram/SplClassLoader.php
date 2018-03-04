@@ -56,7 +56,6 @@ class SplClassLoader
 
   /**
    * Sets the namespace separator used by classes in the namespace of this class loader.
-   * 
    * @param string $sep The separator to use.
    */
   public function setNamespaceSeparator($sep)
