@@ -1,9 +1,11 @@
 <?php
-namespace OC\Test\Model; // La classe sera dans ce namespace
+namespace OC\Test\Model;
+
+// La classe sera dans ce namespace
 
 require_once("model/Manager.php"); // Vous n'alliez pas oublier cette ligne ? ;o)
 
-class PostManager  extends Manager
+class PostManager extends Manager
 {
     public function getPosts()
     {
@@ -22,5 +24,4 @@ class PostManager  extends Manager
 
         return $post;
     }
-
 }

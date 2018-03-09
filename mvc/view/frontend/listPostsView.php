@@ -6,9 +6,8 @@
 
 
 <?php
-while ($data = $posts->fetch())
-{
-?>
+while ($data = $posts->fetch()) {
+    ?>
     <div class="news">
         <h3>
             <?= htmlspecialchars($data['title']) ?>

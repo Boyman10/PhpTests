@@ -1,20 +1,20 @@
 <?php
 trait MonTrait
 {
-  public function hello()
-  {
-    echo 'Hello world !';
-  }
+    public function hello()
+    {
+        echo 'Hello world !';
+    }
 }
 
 class A
 {
-  use MonTrait;
+    use MonTrait;
 }
 
 class B
 {
-  use MonTrait;
+    use MonTrait;
 }
 
 $a = new A;

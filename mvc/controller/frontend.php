@@ -1,4 +1,4 @@
-<?php    
+<?php 
 /**
 * This is the Contoller
 *
@@ -55,8 +55,7 @@ function addComment($postId, $author, $comment)
 
     if ($affectedLines === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
-    }
-    else {
+    } else {
         header('Location: index.php?action=post&id=' . $postId);
     }
 }

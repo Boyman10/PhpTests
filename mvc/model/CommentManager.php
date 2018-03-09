@@ -26,7 +26,7 @@ class CommentManager extends Manager
     /**
     * Function to return comment given an id
     * @param int $id
-    * @return comment 
+    * @return comment
     */
     public function getComment($id)
     {
@@ -35,6 +35,5 @@ class CommentManager extends Manager
         $comments->execute(array($id));
 
         return $comment;
-    }    
-
+    }
 }
