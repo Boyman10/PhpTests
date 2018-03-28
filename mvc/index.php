@@ -24,7 +24,7 @@ try { // On essaie de faire des choses
             }
         } elseif ($_GET['action'] == 'comment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                comment();
+                comment();// don t need parameter - it's handled within the model
             } else {
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                 throw new Exception('Aucun identifiant de commentaire envoyé');
