@@ -1,5 +1,7 @@
 {
-    "require": {
-        
+    "autoload": {
+        "psr-4": {
+            "OC\\Test\\Model\\": "mvc/model/"
+        }
     }
 }
