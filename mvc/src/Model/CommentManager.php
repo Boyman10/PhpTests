@@ -1,7 +1,7 @@
 <?php
-namespace OC\Test\Model;
+namespace OC\Model;
 
-require_once("model/Manager.php"); // Vous n'alliez pas oublier cette ligne ? ;o)
+//require_once("model/Manager.php"); // Vous n'alliez pas oublier cette ligne ? ;o)
 
 class CommentManager extends Manager
 {

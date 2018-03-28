@@ -9,8 +9,17 @@
 
 // https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
 
-require('controller/frontend.php');
-        
+// Composer autoloader :
+require_once("vendor/autoload.php");
+
+//require('Controller/frontend.php');
+
+use OC\Controller;
+
+
+$controller = new Controller\Controller();
+
+
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
@@ -43,7 +52,7 @@ try { // On essaie de faire des choses
             }
         }
     } else {
-        listPosts();
+        $controller->listPosts();
     }
 } catch (Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();

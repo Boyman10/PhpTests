@@ -1,5 +1,5 @@
 <?php
-namespace OC\Test\Model;
+namespace OC\Model;
 
 /**
 * This class manages the Database Connection
