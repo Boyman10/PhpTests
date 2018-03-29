@@ -16,6 +16,8 @@ namespace OC\Controller;
 use OC\Model\PostManager;
 use OC\Model\CommentManager;
 
+// Here __DIR__ is pathto/Controller
+
 class Controller {
 
     public function listPosts()
@@ -24,7 +26,7 @@ class Controller {
 
         $commentManager = new CommentManager();
         $posts = $postManager->getPosts();
-        require('view/frontend/listPostsView.php');
+        require( __DIR__.'/../view/frontend/listPostsView.php');
     }
 
     public function post()
@@ -35,7 +37,7 @@ class Controller {
         $post = $postManager->getPost($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
 
-        require('view/frontend/postView.php');
+        require(__DIR__.'/../view/frontend/postView.php');
     }
     /**
     * Function retrieving the comment for edition
@@ -46,7 +48,7 @@ class Controller {
 
         $comment = $commentManager->getComment($_GET['id']);
 
-        require('view/frontend/commentView.php');
+        require(__DIR__.'/../view/frontend/commentView.php');
     }
 
     public function addComment($postId, $author, $comment)
