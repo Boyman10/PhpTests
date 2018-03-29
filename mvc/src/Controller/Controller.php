@@ -20,10 +20,12 @@ use OC\Model\CommentManager;
 
 class Controller {
 
-    function __construct() {
+    private $twig;
+    
+    public function __construct() {
         
         $loader = new \Twig_Loader_Filesystem(__DIR__.'/../view/frontend/');
-        $twig = new Twig_Environment($loader, array(
+        $this->twig = new \Twig_Environment($loader, array(
             'cache' => __DIR__.'/../../cache/',
         ));
     }
@@ -36,7 +38,9 @@ class Controller {
         $posts = $postManager->getPosts();
       //  require( __DIR__.'/../view/frontend/listPostsView.php');
       
-        $template = $twig->load('listPostsView.html');
+
+        
+        $template = $this->twig->load('listPostsView.html');
         echo $template->render(array('the' => 'variables', 'go' => 'here'));    
     
     }
