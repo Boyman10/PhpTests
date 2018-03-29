@@ -23,17 +23,17 @@ $controller = new Controller\Controller();
 try { // On essaie de faire des choses
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
-            listPosts();
+            $controller->listPosts();
         } elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                post();
+                $controller->post();
             } else {
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         } elseif ($_GET['action'] == 'comment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                comment();// don t need parameter - it's handled within the model
+                $controller->comment();// don t need parameter - it's handled within the model
             } else {
                 // Erreur ! On arrête tout, on envoie une exception, donc au saute directement au catch
                 throw new Exception('Aucun identifiant de commentaire envoyé');
@@ -41,7 +41,7 @@ try { // On essaie de faire des choses
         } elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                    addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                    $controller->addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
                     // Autre exception
                     throw new Exception('Tous les champs ne sont pas remplis !');
