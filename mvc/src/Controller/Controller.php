@@ -20,14 +20,27 @@ use OC\Model\CommentManager;
 
 class Controller {
 
+    function __construct() {
+        
+        $loader = new \Twig_Loader_Filesystem(__DIR__.'/../view/frontend/');
+        $twig = new Twig_Environment($loader, array(
+            'cache' => __DIR__.'/../../cache/',
+        ));
+    }
+    
     public function listPosts()
     {
         $postManager = new PostManager();
 
         $commentManager = new CommentManager();
         $posts = $postManager->getPosts();
-        require( __DIR__.'/../view/frontend/listPostsView.php');
+      //  require( __DIR__.'/../view/frontend/listPostsView.php');
+      
+        $template = $twig->load('listPostsView.html');
+        echo $template->render(array('the' => 'variables', 'go' => 'here'));    
+    
     }
+        
 
     public function post()
     {
