@@ -57,7 +57,11 @@ class Controller {
         $post = $postManager->getPost($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
 
-        require(__DIR__.'/../view/frontend/postView.php');
+        $template = $this->twig->load('postView.html');
+        
+        echo $template->render(array('post' => $post,'comments' => $comments));  
+        
+
     }
     /**
     * Function retrieving the comment for edition

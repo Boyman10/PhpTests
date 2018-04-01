@@ -8,13 +8,13 @@
     </style>
 {% endblock %}
 {% block content %}
-	<h1>Mon super blog !</h1>
+	<h1>Mon super {{title}} blog !</h1>
 	<p>Derniers billets du blog :</p>
         {% for item in posts %}
                 <div class="news">
         <h3>
             <a href="?action=post&id={{item.id}}">{{ item.title }}</a>
-            <em>le {{ item.creation_date}}></em>
+            <em>le {{ item.creation_date_fr}}</em>
         </h3>
         
         <p>

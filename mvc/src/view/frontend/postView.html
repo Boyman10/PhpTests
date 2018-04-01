@@ -1,0 +1,39 @@
+{% extends "template.html" %}
+
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+
+
+        <h1>Mon super blog !</h1>
+        <p><a href="index.php">Retour à la liste des billets</a></p>
+
+        <div class="news">
+            <h3>
+                {{post.title}}
+                <em>le {{post.creation_date_fr}}</em>
+            </h3>
+            
+            <p>
+                {{post.content}}
+            </p>
+        </div>
+
+        <h2>Commentaires</h2>
+{% import "forms.html" as forms %}
+
+<p>{{ forms.input('username') }}</p>
+
+
+{% for item in comments %}
+            <p><strong>{{item.author}}</strong> le {{item.comment_date_fr}} (<a href="/mvc/?action=comment&id={{post.id}}">modifier</a>)
+            </p>
+            <p>{{item.content}}</p>
+
+{% endfor %}
+{% endblock %}
