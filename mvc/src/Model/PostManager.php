@@ -4,15 +4,15 @@ namespace OC\Model;
 // La classe sera dans ce namespace
 use OC\Model\Manager;
 
-//require_once("model/Manager.php"); // Vous n'alliez pas oublier cette ligne ? ;o)
-
+// require_once("model/Manager.php"); // Vous n'alliez pas oublier cette ligne ? ;o)
 class PostManager extends Manager
 {
+
     public function getPosts()
     {
         $db = $this->dbConnect();
         $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
-
+        
         return $req;
     }
 
@@ -20,9 +20,11 @@ class PostManager extends Manager
     {
         $db = $this->dbConnect();
         $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
-        $req->execute(array($postId));
+        $req->execute(array(
+            $postId
+        ));
         $post = $req->fetch();
-
+        
         return $post;
     }
 }
