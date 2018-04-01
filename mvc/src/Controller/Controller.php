@@ -41,7 +41,8 @@ class Controller {
 
         
         $template = $this->twig->load('listPostsView.html');
-        echo $template->render(array('the' => 'variables', 'go' => 'here'));    
+        
+        echo $template->render(array('posts' => $posts,'title' => 'test'));    
     
     }
         
