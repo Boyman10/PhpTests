@@ -27,7 +27,9 @@ class Controller {
         $loader = new \Twig_Loader_Filesystem(__DIR__.'/../view/frontend/');
         $this->twig = new \Twig_Environment($loader, array(
             'cache' => __DIR__.'/../../cache/',
+            'debug' => true,
         ));
+
     }
     
     public function listPosts()
