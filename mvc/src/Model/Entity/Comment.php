@@ -6,11 +6,11 @@
 *
 * @see Markdown
 * @todo - implement hydratation
-*
+*/
 
 namespace \OC\Test\Model\Entity;
 
-class Comment extends Model
+class Comment //extends Model
 {
     private $author;
     private $content;
@@ -36,4 +36,4 @@ class Comment extends Model
     }
 }
 
-*/
+
