@@ -10,7 +10,7 @@ namespace OC\Model\Entity;
  * @see Markdown
  * @todo - implement hydratation
  */
-class Post extends Model
+class Post //extends Model
 {
     private $id;
     private $author;

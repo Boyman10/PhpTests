@@ -18,12 +18,6 @@ class PostManager extends Manager
         
         $posts = $req->fetchAll();
         
-        foreach($posts as $value) {
-            
-            echo $value->title.'<br/>';    
-        }
-        exit;
-        
         $req->closeCursor();
         
         return $posts;

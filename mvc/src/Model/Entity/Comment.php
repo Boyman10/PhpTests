@@ -10,7 +10,7 @@ namespace OC\Model\Entity;
  * @see Markdown
  * @todo - implement hydratation
  */
-class Comment extends Model
+class Comment // extends Model
 {
     private $author;
     private $content;
