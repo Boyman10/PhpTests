@@ -1,15 +1,15 @@
 <?php
+
+namespace OC\Model\Entity;
+
 /**
-* This is the Post Entity
-*
-* To be used for hydratation
-*
-* @see Markdown
-* @todo - implement hydratation
-*/
-
-namespace \OC\Test\Model\Entity;
-
+ * This is the Post Entity
+ *
+ * To be used for hydratation
+ *
+ * @see Markdown
+ * @todo - implement hydratation
+ */
 class Post extends Model
 {
     private $id;
@@ -19,47 +19,47 @@ class Post extends Model
     private $dateCreation;
     
     
-    public getId() {
+    public function getId() {
         
         return $this->id;
     }
     
-    public getAuthor() // Récupère l'auteur
+    public function getAuthor() // Récupère l'auteur
     {
         return $this->author;
     }
     
-    public getContent() // Récupère le contenu
+    public function getContent() // Récupère le contenu
     {
         return $this->content;
     }
     
-    public setAuthor($author) // Définit l'auteur
+    public function setAuthor($author) // Définit l'auteur
     {
         $this->author = $author;
     }
     
-    public setContent($content) // Définit le contenu
+    public function setContent($content) // Définit le contenu
     {
         $this->content = $content;
     }
 
-    public getTitle() {
+    public function getTitle() {
         
         return $this->title;
     }
     
-    public setTitle($title) {
+    public function setTitle($title) {
         
         $this->title = $title;
     }
     
-    public getDateCreation() {
+    public function getDateCreation() {
         
         return $this->dateCreation;
     }
     
-    public setDateCreation($date) {
+    public function setDateCreation($date) {
         
         $this->dateCreation = $date;
     }

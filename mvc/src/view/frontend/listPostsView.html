@@ -11,12 +11,12 @@ block head %} {{ parent() }}
 {% for item in posts %}
 <div class="news">
 	<h3>
-		<a href="?action=post&id={{item.id}}">{{ item.title }}</a> <em>le
-			{{ item.creation_date_fr}}</em>
+		<a href="?action=post&id={{item.getId()}}">{{ item.getTitle() }}</a> <em>le
+			{{ item.getCreationDate()}}</em>
 	</h3>
 
 	<p>
-		{{ item.content }} <br /> <em><a
+		{{ item.getContent() }} <br /> <em><a
 			href="/mvc/?action=post&id={{item.id}}">Commentaires</a></em>
 	</p>
 </div>
