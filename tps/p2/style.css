@@ -1,0 +1,88 @@
+
+@font-face{
+
+font-family:'MaSuperPolice';
+src:url(glyphicons-halflings-regular.eot);
+
+src:url(glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),
+url(glyphicons-halflings-regular.woff2) format('woff2'),
+url(glyphicons-halflings-regular.woff) format('woff'),
+url(glyphicons-halflings-regular.ttf) format('truetype'),
+url(glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+
+}
+
+
+@font-face {
+  font-family: 'MaSuperPolice';
+  src: url('glyphicons-halflings-regular.eot');
+  src: url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('glyphicons-halflings-regular.woff2') format('woff2'), url('glyphicons-halflings-regular.woff') format('woff'), url('glyphicons-halflings-regular.ttf') format('truetype'), url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+h1 {
+
+    font-family : arial;
+}
+
+
+
+
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+/*!
+ * Generated using the Bootstrap Customizer (http://getbootstrap.com/customize/?id=76290a4e23bf2c3f61a4e17625be4627)
+ * Config saved to config.json and https://gist.github.com/76290a4e23bf2c3f61a4e17625be4627
+ */
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('glyphicons-halflings-regular.eot');
+  src: url('glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('glyphicons-halflings-regular.woff2') format('woff2'), url('glyphicons-halflings-regular.woff') format('woff'), url('glyphicons-halflings-regular.ttf') format('truetype'), url('glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+
+h1 {
+
+font-family : 'Glyphicons Halflings';
+
+}
+h1:before {
+
+    
+    content : "\f1b3"; 
+    
+      -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+
+
+    
+}
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'MaSuperPolice';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+h2:before {
+
+content: "\002b";
+}
+
+
