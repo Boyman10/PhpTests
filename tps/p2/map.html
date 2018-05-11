@@ -9,7 +9,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Map -->
 <style>
+footer {
+	width: 100%;
+	height: 600px;
+}
 
+footer iframe {
+	width: 100%;
+	height: 600px;
+	position: relative;
+
+	z-index : -1;
+}
+
+footer .blowme {
+	position: absolute;
+	background-color: rgba(255, 200, 200, 0.4);
+	z-index: auto;
+	width : 100%;
+	height : 600px;
+	/*
+	The z-index property specifies the stack order of an element.
+An element with greater stack order is always in front of an element with a lower stack order.
+Note: z-index only works on positioned elements (position:absolute, position:relative, or position:fixed).
+	*/
+}
+
+footer:hover .blowme{
+	z-index : -2;
+}
+footer:hover iframe {
+	z-index : 1;
+}
+
+footer .container {
+	position : relative ;
+	display :block;
+	margin-top : 100px;
+	z-index : 2;
+	background-color : rgba(230,230,230,0.8);
+	width : 450px;
+}
 </style>
 
 </head>
@@ -18,53 +58,46 @@
 
 
 
-         <footer id="contact">
-                
-                <!-- Fomulaire de contact -->
-                
-               <div id="gst_form">
-                   
-                    <div class="cntr_form">
-                    
-                         <h2 class="titre_contact">Contact Info</h2>
+	<footer>
 
-                        <p style="text-decoration: underline; color: #5A95B2" class="info_adresse">WebAgency SAS</p>
 
-                        <p class="info_adresse">25 rue d'Hauteville 75010 Paris</p>
+		<!-- Contact form -->
+		<div class="blowme">
+			<!-- Google map -->
+			<iframe
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1312.1135939843834!2d2.3490098479555113!3d48.872945431299584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e145ccb3091%3A0x9495beee8c96ec27!2s25+Rue+d&#39;Hauteville%2C+75010+Paris!5e0!3m2!1sfr!2sfr!4v1504944970120"
+				style="border: 0" allowfullscreen></iframe>
+			<!--  end blowme -->
+		</div>
+				
+		<div class="container">
 
-                        <p class="info_adresse"><span style="text-decoration: underline;">Tél:</span> 01 02 03 04 05</p>
+			<h2>Contact Info</h2>
 
-                        <form>
+			<p style="text-decoration: underline; color: #5A95B2"
+				class="info_adresse">WebAgency SAS</p>
 
-                            <input class="input_form" placeholder="Nom">
+			<p class="info_adresse">25 rue d'Hauteville 75010 Paris</p>
 
-                            <br>
+			<p class="info_adresse">
+				<span style="text-decoration: underline;">Tél:</span> 01 02 03 04 05
+			</p>
 
-                            <input class="input_form" placeholder="Email">
+			<form>
 
-                            <br>
+				<input placeholder="Nom"> <br> <input
+					placeholder="Email"> <br> <input placeholder="Sujet">
 
-                            <input class="input_form" placeholder="Sujet">
+				<br>
 
-                            <br>
+				<textarea style="height: 100px; resize: none;" placeholder="Message"></textarea>
 
-                            <textarea class="input_form" style="height:100px; resize: none;" placeholder="Message"></textarea>
+				<br> <input type="submit" value="Envoyer">
 
-                            <br>
+			</form>
 
-                            <input class="btn_info btn_form" type="submit" value="Envoyer">
-
-                        </form>
-                
-                    </div>
-                
-                <!-- Google map -->
-                
-                <iframe class="map" src="./WEBAGENCY _ L&#39;agence de tous vos projets! UX design, UI design, SEO_files/embed.html" style="border:0" allowfullscreen=""></iframe>
-                   
-                </div>
-                
-            </footer>
+		</div>
+	</footer>
 
 </body>
 </html>
