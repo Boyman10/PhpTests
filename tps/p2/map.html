@@ -9,6 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Map -->
 <style>
+
+body {
+margin:0;
+}
 footer {
 	width: 100%;
 	height: 600px;
@@ -18,7 +22,6 @@ footer iframe {
 	width: 100%;
 	height: 600px;
 	position: relative;
-
 	z-index : -1;
 }
 
@@ -35,18 +38,23 @@ Note: z-index only works on positioned elements (position:absolute, position:rel
 	*/
 }
 
-footer:hover .blowme{
-	z-index : -2;
-}
 footer:hover iframe {
-	z-index : 1;
+	z-index : 2;
 }
 
 footer .container {
 	position : relative ;
-	display :block;
-	margin-top : 100px;
+	display : block;
+	margin: auto;
+	
 	z-index : 2;
+	height : auto;
+	width : 1300px;
+}
+
+footer .container .contact {
+	float : right;
+	display : block;
 	background-color : rgba(230,230,230,0.8);
 	width : 450px;
 }
@@ -70,8 +78,10 @@ footer .container {
 			<!--  end blowme -->
 		</div>
 				
+					
 		<div class="container">
 
+		<div class="contact">
 			<h2>Contact Info</h2>
 
 			<p style="text-decoration: underline; color: #5A95B2"
@@ -95,7 +105,7 @@ footer .container {
 				<br> <input type="submit" value="Envoyer">
 
 			</form>
-
+		</div>
 		</div>
 	</footer>
 
