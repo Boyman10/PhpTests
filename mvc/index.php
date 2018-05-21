@@ -21,7 +21,13 @@ $controller = new Controller\Controller();
 
 
 try { // On essaie de faire des choses
+    
+
     if (isset($_GET['action'])) {
+        
+        /**
+         * FRONTEND
+         */
         if ($_GET['action'] == 'listPosts') {
             $controller->listPosts();
         } elseif ($_GET['action'] == 'post') {
@@ -51,6 +57,24 @@ try { // On essaie de faire des choses
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+        /**
+         * BACKEND
+         */
+        elseif ($_GET['action'] == 'addpost') {
+            
+            // Check session parameter @TODO
+            if (!empty($_POST['author']) && !empty($_POST['content']) && !empty($_POST['title'])) {
+                
+                $controller->addPost($_POST);
+                
+            } else {
+                // print the form here
+                $controller->addPost();
+            }
+        }
+        
+        
+        
     } else {
         $controller->listPosts();
     }

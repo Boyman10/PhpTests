@@ -86,4 +86,23 @@ class Controller
             header('Location: index.php?action=post&id=' . $postId);
         }
     }
+    
+    
+    /**
+     * Adding post
+     */
+    public function addPost($values = null) {
+        
+        // No value submitted - no post data - we print the form
+        if (null === $values) {
+            
+            $template = $this->twig->load('add_post.html');
+            
+            echo $template->render(array(
+                'title' => 'Add an article now'
+            ));
+            
+        }
+        
+    }
 }
