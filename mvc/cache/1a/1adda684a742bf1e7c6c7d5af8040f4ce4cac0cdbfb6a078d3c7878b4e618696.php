@@ -77,7 +77,9 @@ class __TwigTemplate_3c43d716b8a53fe088ae2662b5a7f1fec7a7913d6f604e7679ba2677e86
 \t\t\t";
             // line 20
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "dateCreation", array()), "html", null, true);
-            echo "</em>
+            echo "</em> par <b>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "author", array()), "name", array()), "html", null, true);
+            echo "</b>
 \t</h3>
 
 \t<p>
@@ -115,7 +117,7 @@ class __TwigTemplate_3c43d716b8a53fe088ae2662b5a7f1fec7a7913d6f604e7679ba2677e86
 
     public function getDebugInfo()
     {
-        return array (  101 => 29,  90 => 25,  86 => 24,  79 => 20,  73 => 19,  69 => 17,  65 => 16,  60 => 14,  56 => 12,  53 => 11,  47 => 8,  42 => 7,  37 => 4,  34 => 3,  15 => 1,);
+        return array (  103 => 29,  92 => 25,  88 => 24,  79 => 20,  73 => 19,  69 => 17,  65 => 16,  60 => 14,  56 => 12,  53 => 11,  47 => 8,  42 => 7,  37 => 4,  34 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -139,7 +141,7 @@ Index
 <div class=\"news border border-info\">
 \t<h3>
 \t\t<a href=\"?action=post&id={{item.id}}\">{{ item.getTitle() }}</a> <em>le
-\t\t\t{{ item.dateCreation}}</em>
+\t\t\t{{ item.dateCreation}}</em> par <b>{{ item.author.name }}</b>
 \t</h3>
 
 \t<p>
