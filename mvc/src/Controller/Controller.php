@@ -38,7 +38,7 @@ class Controller
         $posts = $postManager->getPosts();
         // require( __DIR__.'/../view/frontend/listPostsView.php');
         
-        $template = $this->twig->load('listPostsView.html');
+        $template = $this->twig->load('list_posts.twig');
         
         echo $template->render(array(
             'posts' => $posts,
@@ -54,7 +54,7 @@ class Controller
         $post = $postManager->getPost($_GET['id']);
         $comments = $commentManager->getComments($_GET['id']);
         
-        $template = $this->twig->load('postView.html');
+        $template = $this->twig->load('post.twig');
         
         echo $template->render(array(
             'post' => $post,
@@ -96,7 +96,7 @@ class Controller
         // No value submitted - no post data - we print the form
         if (null === $values) {
             
-            $template = $this->twig->load('add_post.html');
+            $template = $this->twig->load('add_post.twig');
             
             echo $template->render(array(
                 'title' => 'Add an article now'

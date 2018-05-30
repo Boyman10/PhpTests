@@ -1,0 +1,31 @@
+{% extends "template.twig" %}
+
+{% block title %}
+Index
+{% endblock %} 
+
+{% block head %} 
+{{ parent() }}
+{% endblock %} 
+
+{% block content %}
+
+<section class="container">
+<h1>Mon super {{title}} blog !</h1>
+<p>Derniers billets du blog :</p>
+{% for item in posts %}
+<div class="news border border-info">
+	<h3>
+		<a href="?action=post&id={{item.id}}">{{ item.getTitle() }}</a> <em>le
+			{{ item.dateCreation}}</em>
+	</h3>
+
+	<p>
+		{{ item.getContent() | raw }} <br /> 
+		<em><a href="/mvc/?action=post&id={{item.id}}">Commentaires</a></em>
+	</p>
+</div>
+
+{% endfor %} 
+</section>
+{% endblock %}

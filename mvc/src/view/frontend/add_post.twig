@@ -1,0 +1,37 @@
+{% extends "template.twig" %} {% block title %}Index{% endblock %} {%
+block head %} {{ parent() }}
+<style type="text/css">
+.important {
+	color: #336699;
+}
+</style>
+{% endblock %} {% block content %}
+<h1>{{title}}</h1>
+
+<div class="container">
+
+	<form>
+		<div class="form-group">
+			<label for="author">Author</label> <input
+				type="text" class="form-control" id="author"
+				aria-describedby="authorHelp" placeholder="Enter author name"> <small
+				id="authorHelp" class="form-text text-muted">Named entered using Session element...</small>
+		</div>
+		<div class="form-group">
+			<label for="title">Title</label> <input
+				type="text" class="form-control" id="title"
+				placeholder="Title">
+		</div>
+		<div class="form-group">
+			<label for="content">Content</label> <textarea name="content" class="form-control" id="content"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+  <script type="text/javascript">
+  tinymce.init({
+    selector: '#content'
+  });
+  </script>
+{% endblock %}

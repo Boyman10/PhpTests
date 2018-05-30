@@ -13,6 +13,10 @@ namespace OC\Model\Entity;
 class Post //extends Model
 {
     private $id;
+    
+    /**
+     * @var User $author
+     */
     private $author;
     private $content;
     private $title;
@@ -24,7 +28,7 @@ class Post //extends Model
         return $this->id;
     }
     
-    public function getAuthor() // Récupère l'auteur
+    public function getAuthor() : User // Récupère l'auteur
     {
         return $this->author;
     }
@@ -34,7 +38,7 @@ class Post //extends Model
         return $this->content;
     }
     
-    public function setAuthor($author) // Définit l'auteur
+    public function setAuthor(User $author) // Définit l'auteur
     {
         $this->author = $author;
     }
