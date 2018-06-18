@@ -1,7 +1,7 @@
 <?php
 
 /* template.twig */
-class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf19402 extends Twig_Template
+class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505ceef9 extends Twig_Template
 {
     private $source;
 
@@ -49,14 +49,8 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
       <li class=\"nav-item active\">
         <a class=\"nav-link\" href=\"/mvc/\">Home <span class=\"sr-only\">(current)</span></a>
       </li>
-      <li class=\"nav-item dropdown\" >
-        <a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">administration</a>
-        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-          <a class=\"dropdown-item\" href=\"/mvc/?action=login\">Sign in</a>
-          <a class=\"dropdown-item\" href=\"/mvc/?action=register\">Register</a>
-          <div class=\"dropdown-divider\"></div>
-          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-        </div>
+      <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"#\">admin</a>
       </li>
       <li class=\"nav-item dropdown\">
         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
@@ -82,14 +76,14 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
     
     
         <div id=\"content\">";
-        // line 58
+        // line 52
         $this->displayBlock('content', $context, $blocks);
         echo "</div>
         <div id=\"footer\">
             ";
-        // line 60
+        // line 54
         $this->displayBlock('footer', $context, $blocks);
-        // line 63
+        // line 57
         echo "        </div>
         
         <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
@@ -107,7 +101,7 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
             <title>";
         // line 9
         $this->displayBlock('title', $context, $blocks);
-        echo " - My Webpage with Twig</title>
+        echo " - Backoffice with Twig</title>
         ";
     }
 
@@ -115,15 +109,15 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
     {
     }
 
-    // line 58
+    // line 52
     public function block_content($context, array $blocks = array())
     {
     }
 
-    // line 60
+    // line 54
     public function block_footer($context, array $blocks = array())
     {
-        // line 61
+        // line 55
         echo "                &copy; Copyright 2018 by <a href=\"/\">you</a>.
             ";
     }
@@ -135,7 +129,7 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
 
     public function getDebugInfo()
     {
-        return array (  127 => 61,  124 => 60,  119 => 58,  109 => 9,  106 => 8,  103 => 7,  93 => 63,  91 => 60,  86 => 58,  37 => 11,  35 => 7,  27 => 1,);
+        return array (  121 => 55,  118 => 54,  113 => 52,  103 => 9,  100 => 8,  97 => 7,  87 => 57,  85 => 54,  80 => 52,  37 => 11,  35 => 7,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -148,7 +142,7 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
     
         {% block head %}
             <link rel=\"stylesheet\" href=\"/mvc/src/public/css/style.css\" />
-            <title>{% block title %}{% endblock %} - My Webpage with Twig</title>
+            <title>{% block title %}{% endblock %} - Backoffice with Twig</title>
         {% endblock %}
     </head>
     <body>
@@ -165,14 +159,8 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
       <li class=\"nav-item active\">
         <a class=\"nav-link\" href=\"/mvc/\">Home <span class=\"sr-only\">(current)</span></a>
       </li>
-      <li class=\"nav-item dropdown\" >
-        <a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">administration</a>
-        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-          <a class=\"dropdown-item\" href=\"/mvc/?action=login\">Sign in</a>
-          <a class=\"dropdown-item\" href=\"/mvc/?action=register\">Register</a>
-          <div class=\"dropdown-divider\"></div>
-          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-        </div>
+      <li class=\"nav-item\">
+        <a class=\"nav-link\" href=\"#\">admin</a>
       </li>
       <li class=\"nav-item dropdown\">
         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
@@ -208,6 +196,6 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
 <script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>
 <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
     </body>
-</html>", "template.twig", "/home/bob/Documents/web/testme.com/html/mvc/src/view/frontend/template.twig");
+</html>", "template.twig", "/home/bob/Documents/web/testme.com/html/mvc/src/view/backend/template.twig");
     }
 }

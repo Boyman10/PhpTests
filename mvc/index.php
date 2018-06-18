@@ -7,6 +7,8 @@
  * @since 1.0.0 introduced
  */
 
+session_start();
+
 // https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
 
 // Composer autoloader :
@@ -18,6 +20,7 @@ use OC\Controller;
 
 
 $controller = new Controller\Controller();
+$backController = new Controller\BackController();
 
 
 try { // On essaie de faire des choses
@@ -56,6 +59,34 @@ try { // On essaie de faire des choses
                 // Autre exception
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
+        } 
+        elseif($_GET['action'] == 'login') 
+        {
+            // Case session already set :
+            if (isset($_SESSION['user'])) {
+                
+                $backController->admin();
+            } elseif(!empty($_POST['username']) && !empty($_POST['pass'])) {
+                
+                // Treat the login form here :
+                
+            } else {
+                $backController->login();
+            }
+            
+            
+        } 
+        elseif ($_GET['action'] == 'register')
+        {
+            // Case session already set :
+            if (isset($_SESSION['user'])) {
+                
+                $backController->admin();
+                
+            } else {
+                $backController->register($_POST);
+            }           
+            
         }
         /**
          * BACKEND

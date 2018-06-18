@@ -1,0 +1,30 @@
+{% extends "template.twig" %} 
+
+{% block title %}Backoffice - login in{% endblock %} 
+{% block head %} {{ parent() }}
+
+{% endblock %} 
+
+{% block content %}
+<div class="container">
+<h1>{{title}}</h1>
+
+
+
+	<form>
+		<div class="form-group">
+			<label for="username">Username</label> <input
+				type="text" class="form-control" id="username"
+				aria-describedby="authorHelp" placeholder="Enter user name"> <small
+				id="authorHelp" class="form-text text-muted">User name or email</small>
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label> 
+			<input type="password" class="form-control" id="title" placeholder="password">
+		</div>
+
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+{% endblock %}

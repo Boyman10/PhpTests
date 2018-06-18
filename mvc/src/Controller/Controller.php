@@ -16,19 +16,8 @@ use OC\Model\PostManager;
 use OC\Model\CommentManager;
 
 // Here __DIR__ is pathto/Controller
-class Controller
+class Controller extends Application
 {
-
-    private $twig;
-
-    public function __construct()
-    {
-        $loader = new \Twig_Loader_Filesystem(__DIR__ . '/../view/frontend/');
-        $this->twig = new \Twig_Environment($loader, array(
-            'cache' => __DIR__ . '/../../cache/',
-            'debug' => true
-        ));
-    }
 
     public function listPosts()
     {
