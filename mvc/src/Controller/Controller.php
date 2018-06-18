@@ -32,6 +32,8 @@ class Controller
 
     public function listPosts()
     {
+        
+        try {
         $postManager = new PostManager();
         
         $commentManager = new CommentManager();
@@ -44,6 +46,11 @@ class Controller
             'posts' => $posts,
             'title' => 'test'
         ));
+        
+        } catch(Exception $e) {
+            
+            echo $e->getMessage();
+        }
     }
 
     public function post()

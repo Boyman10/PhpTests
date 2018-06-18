@@ -78,7 +78,7 @@ class __TwigTemplate_3c43d716b8a53fe088ae2662b5a7f1fec7a7913d6f604e7679ba2677e86
             // line 20
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "dateCreation", array()), "html", null, true);
             echo "</em> par <b>";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "author", array()), "name", array()), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "author", array()), "userName", array()), "html", null, true);
             echo "</b>
 \t</h3>
 
@@ -141,7 +141,7 @@ Index
 <div class=\"news border border-info\">
 \t<h3>
 \t\t<a href=\"?action=post&id={{item.id}}\">{{ item.getTitle() }}</a> <em>le
-\t\t\t{{ item.dateCreation}}</em> par <b>{{ item.author.name }}</b>
+\t\t\t{{ item.dateCreation}}</em> par <b>{{ item.author.userName }}</b>
 \t</h3>
 
 \t<p>

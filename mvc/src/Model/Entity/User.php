@@ -17,43 +17,71 @@ class User extends Model
 
     /**
      *
-     * @var String $name
+     * @var String $userName
      */
-    private $name;
-
+    private $userName;
+    
     /**
      * either ROLE_USER, ROLE_ADMIN...
-     *
-     * @var $role
+     * @var String $userRole
      */
-    private $role;
+    private $userRole;
+    
+    /**
+     * @var $dateCreated;
+     */
+    private $dateCreated;
+    
+    /**
+     * @var $userEmail;
+     */
+    private $userEmail;
 
-    public function __construct()
-    {}
 
-    public function getName(): string
+    public function getUserName(): string
     {
-        return $this->name;
+        return $this->userName;
     }
-
+    public function getUserEmail(): string
+    {
+        return $this->userEmail;
+    }
+    
+    public function getDateCreated(): string
+    {
+        return $this->dateCreated;
+    }
+    
     public function getId(): int
     {
         return $this->id;
     }
-
-    public function getRole(): string
+    public function setId($id)
     {
-        return $this->role;
+        $this->id = $id;
+    }
+    public function getUserRole(): string
+    {
+        return $this->userRole;
     }
 
-    public function setName(string $name)
+    public function setUserName(string $name)
     {
-        $this->name = $name;
+        $this->userName = $name;
     }
 
-
-    public function setRole(string $role)
+    public function setUserEmail(string $email)
     {
-        $this->role = $role;
+        $this->userEmail = $email;
+    }
+    
+    public function setDateCreated(string $dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
+    }
+    
+    public function setUserRole(string $role)
+    {
+        $this->userRole = $role;
     }
 }

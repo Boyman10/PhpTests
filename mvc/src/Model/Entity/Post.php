@@ -10,7 +10,7 @@ namespace OC\Model\Entity;
  * @see Markdown
  * @todo - implement hydratation
  */
-class Post //extends Model
+class Post extends Model
 {
     private $id;
     
@@ -27,7 +27,10 @@ class Post //extends Model
         
         return $this->id;
     }
-    
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
     public function getAuthor() : User // Récupère l'auteur
     {
         return $this->author;

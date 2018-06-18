@@ -1,4 +1,6 @@
 <?php 
+declare(strict_types = 1);
+
 namespace OC\Model\Entity;
 
 abstract class  Model
@@ -26,14 +28,32 @@ abstract class  Model
     {
         foreach ($data as $attribut => $value)
         {
-            $method = 'set'.ucfirst($attribut);
+            $attribut = $this->replaceUnderScores($attribut);
+            
+            $method = 'set'.$attribut;
             
             if (is_callable([$this, $method]))
             {
                 $this->$method($value);
+            } else {
+                echo '<p>##'.$method.'</p>';
+                
+                print_r(get_class_methods ($this));
             }
         }
     }
     
-    
+    /**
+     * Method called to match the method name using the mysql submitted parameter
+     * @param String $str
+     */
+    private function replaceUnderScores($str) : string
+    {
+        $array = explode("_",$str);
+        $array = array_map("ucfirst",$array);
+        
+        return implode($array);
+        
+    }
+        
 }

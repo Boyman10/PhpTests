@@ -19,7 +19,7 @@ class PostManager extends Manager
         try {
             $db = $this->dbConnect();
             $req = $db->query('SELECT mvc_post.id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS dateCreation,
-                            mvc_user.id,mvc_user.user_name,user_email,user_role
+                            mvc_user.id as uid,user_name,user_email,user_role
                            FROM mvc_post LEFT JOIN mvc_user ON mvc_user.id = user_id ORDER BY creation_date DESC LIMIT 0, 5');
             
             $req->setFetchMode(\PDO::FETCH_ASSOC);
@@ -27,8 +27,8 @@ class PostManager extends Manager
             // iterate throught result 
             while($post = $req->fetch()) {
                 
-                $post_line = array_slice($post,0,3); // first array with post details
-                $author_line = array_slice($post,4); // second array with author details
+                $post_line = ["id" => $post['id'], "title" => $post['title'], "content" => $post['content'], "dateCreation" => $post['dateCreation']]; // first array with post details
+                $author_line = ["id" => $post['uid'], "user_name" => $post['user_name'], "user_email" => $post['user_email'], "user_role" => $post['user_role']]; // second array with author details
                                 
                 $author = new User($author_line);
                 $cur_post = new Post($post_line);
@@ -45,8 +45,7 @@ class PostManager extends Manager
             echo "Error: " . $e->getMessage();
         }
         
-        
-        
+       
         
         return $posts;
     }
