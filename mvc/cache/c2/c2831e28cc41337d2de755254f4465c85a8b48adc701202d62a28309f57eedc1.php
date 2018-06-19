@@ -39,20 +39,22 @@ class __TwigTemplate_1e41d08e410448101d22aae721302757bf65fe037ae52dde540152a77e4
     // line 4
     public function block_head($context, array $blocks = array())
     {
-        echo " ";
+        echo " 
+";
+        // line 5
         $this->displayParentBlock("head", $context, $blocks);
         echo "
-
+<script src='https://www.google.com/recaptcha/api.js'></script>
 ";
     }
 
-    // line 8
+    // line 9
     public function block_content($context, array $blocks = array())
     {
-        // line 9
+        // line 10
         echo "<div class=\"container\">
 <h1>";
-        // line 10
+        // line 11
         echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
         echo "</h1>
 
@@ -79,6 +81,9 @@ class __TwigTemplate_1e41d08e410448101d22aae721302757bf65fe037ae52dde540152a77e4
 \t\t\t<label for=\"conf\">Confirm Password</label> 
 \t\t\t<input type=\"password\" name=\"conf\" class=\"form-control\" id=\"title\" placeholder=\"confirm password\">
 \t\t</div>
+\t\t
+\t\t<div class=\"g-recaptcha\" data-sitekey=\"6LdTw18UAAAAAL2TQfdYRrT3SNtFVzL9RhNL0RzV\"></div>
+\t\t
 \t\t<button type=\"submit\" class=\"btn btn-primary\">Submit</button>
 \t</form>
 </div>
@@ -98,7 +103,7 @@ class __TwigTemplate_1e41d08e410448101d22aae721302757bf65fe037ae52dde540152a77e4
 
     public function getDebugInfo()
     {
-        return array (  56 => 10,  53 => 9,  50 => 8,  40 => 4,  34 => 3,  15 => 1,);
+        return array (  58 => 11,  55 => 10,  52 => 9,  45 => 5,  40 => 4,  34 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -106,8 +111,9 @@ class __TwigTemplate_1e41d08e410448101d22aae721302757bf65fe037ae52dde540152a77e4
         return new Twig_Source("{% extends \"template.twig\" %} 
 
 {% block title %}Backoffice - Registration form{% endblock %} 
-{% block head %} {{ parent() }}
-
+{% block head %} 
+{{ parent() }}
+<script src='https://www.google.com/recaptcha/api.js'></script>
 {% endblock %} 
 
 {% block content %}
@@ -137,6 +143,9 @@ class __TwigTemplate_1e41d08e410448101d22aae721302757bf65fe037ae52dde540152a77e4
 \t\t\t<label for=\"conf\">Confirm Password</label> 
 \t\t\t<input type=\"password\" name=\"conf\" class=\"form-control\" id=\"title\" placeholder=\"confirm password\">
 \t\t</div>
+\t\t
+\t\t<div class=\"g-recaptcha\" data-sitekey=\"6LdTw18UAAAAAL2TQfdYRrT3SNtFVzL9RhNL0RzV\"></div>
+\t\t
 \t\t<button type=\"submit\" class=\"btn btn-primary\">Submit</button>
 \t</form>
 </div>

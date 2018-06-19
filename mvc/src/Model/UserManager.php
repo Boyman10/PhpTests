@@ -40,8 +40,8 @@ class UserManager extends Manager
     {
         $db = $this->dbConnect();
         
-        $user = $db->prepare('INSERT INTO mvc_user(user_name, user_email, date_created, user_role) VALUES(?, ?, NOW(), "ROLE_USER")');
-        $affectedLines = $user->execute(array($params['username'], $params['email']));
+        $user = $db->prepare('INSERT INTO mvc_user(user_name, user_email, date_created, user_role, user_pass) VALUES(?, ?, NOW(), "ROLE_USER")');
+        $affectedLines = $user->execute(array($params['username'], $params['email'], $params['pass']));
         
         return $affectedLines;
         

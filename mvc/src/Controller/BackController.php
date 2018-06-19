@@ -38,6 +38,13 @@ class BackController extends Application
             if ($params['pass'] != $params['conf']) {
                 throw new \Exception("Password don't match !!");
             } else {
+                
+                // First checking Google Recaptcha Success
+                $securityTool = new SecurityUtilities();
+                $securityTool->recaptchaCheck($params['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+                
+                $params['pass'] = $securityTook->hashPass($params['pass']);
+                
                 // Treat the form here :
                 $userManager = new UserManager();
                 $nb = $userManager->addUser($params);

@@ -4,6 +4,7 @@ CREATE TABLE `mvc_user` (
   `user_email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `date_created` datetime NOT NULL,
   `user_role` VARCHAR(20) NOT NULL DEFAULT 'ROLE_ANO',
+  user_pass VARCHAR(100) NOT NULL,
 
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_USER` (`user_name`)

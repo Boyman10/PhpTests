@@ -6,7 +6,7 @@ namespace OC\Tools;
  * This class is having methods in use for securing the application
  *
  */
-public class SecurityUtilities
+class SecurityUtilities
 {
     /**
      * @var $token
@@ -38,10 +38,10 @@ public class SecurityUtilities
      * Filling and calling recaptcha
      * @param [] $params
      */
-    public function recaptchaCheck($params)
+    public function recaptchaCheck($gcaptcha, $ip)
     {
-        $this->response = htmlspecialchars($params['g-recaptcha-response']);
-        $this->remoteip = $params['REMOTE_ADDR'];
+        $this->response = htmlspecialchars($gcaptcha);
+        $this->remoteip = $ip;
         
         // Url to send a post request to
         $api_url = "https://www.google.com/recaptcha/api/siteverify";
@@ -64,6 +64,7 @@ public class SecurityUtilities
         curl_setopt($ch,CURLOPT_URL, $api_url);
         curl_setopt($ch,CURLOPT_POST, count($fields));
         curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         
         //execute post
         $result = curl_exec($ch);
@@ -78,8 +79,18 @@ public class SecurityUtilities
         }
         
         else {
-            throw new \Exception("You are a bot, aren't you !!");
+            throw new \Exception("You are a bot, aren't you !! ".$decode['success']);
         }
+    }
+    
+    /**
+     * Method generating password hash
+     * @return $pass
+     */
+    public function hashPass($pass) : string
+    {
+     
+        return password_hash(htmlspecialchars($pass),);
     }
     
 }
