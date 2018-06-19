@@ -33,7 +33,8 @@ class Controller extends Application
         
         echo $template->render(array(
             'posts' => $posts,
-            'title' => 'test'
+            'title' => 'test',
+            'session' => $_SESSION
         ));
         
         } catch(Exception $e) {
@@ -83,22 +84,4 @@ class Controller extends Application
         }
     }
     
-    
-    /**
-     * Adding post
-     */
-    public function addPost($values = null) {
-        
-        // No value submitted - no post data - we print the form
-        if (null === $values) {
-            
-            $template = $this->twig->load('add_post.twig');
-            
-            echo $template->render(array(
-                'title' => 'Add an article now'
-            ));
-            
-        }
-        
-    }
 }

@@ -59,23 +59,39 @@ class __TwigTemplate_3c43d716b8a53fe088ae2662b5a7f1fec7a7913d6f604e7679ba2677e86
         // line 14
         echo twig_escape_filter($this->env, ($context["title"] ?? null), "html", null, true);
         echo " blog !</h1>
-<p>Derniers billets du blog :</p>
+
 ";
         // line 16
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "flash", array())) {
+            // line 17
+            echo "<div class=\"alert alert-success\" role=\"alert\">
+  <strong>Well done!</strong> ";
+            // line 18
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "flash", array()), "html", null, true);
+            echo "
+</div>
+";
+        }
+        // line 21
+        echo "
+
+<p>Derniers billets du blog :</p>
+";
+        // line 24
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable(($context["posts"] ?? null));
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 17
+            // line 25
             echo "<div class=\"news border border-info\">
 \t<h3>
 \t\t<a href=\"?action=post&id=";
-            // line 19
+            // line 27
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "id", array()), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "getTitle", array(), "method"), "html", null, true);
             echo "</a> <em>le
 \t\t\t";
-            // line 20
+            // line 28
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "dateCreation", array()), "html", null, true);
             echo "</em> par <b>";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["item"], "author", array()), "userName", array()), "html", null, true);
@@ -84,11 +100,11 @@ class __TwigTemplate_3c43d716b8a53fe088ae2662b5a7f1fec7a7913d6f604e7679ba2677e86
 
 \t<p>
 \t\t";
-            // line 24
+            // line 32
             echo twig_get_attribute($this->env, $this->source, $context["item"], "getContent", array(), "method");
             echo " <br /> 
 \t\t<em><a href=\"/mvc/?action=post&id=";
-            // line 25
+            // line 33
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["item"], "id", array()), "html", null, true);
             echo "\">Commentaires</a></em>
 \t</p>
@@ -99,7 +115,7 @@ class __TwigTemplate_3c43d716b8a53fe088ae2662b5a7f1fec7a7913d6f604e7679ba2677e86
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 29
+        // line 37
         echo " 
 </section>
 ";
@@ -117,7 +133,7 @@ class __TwigTemplate_3c43d716b8a53fe088ae2662b5a7f1fec7a7913d6f604e7679ba2677e86
 
     public function getDebugInfo()
     {
-        return array (  103 => 29,  92 => 25,  88 => 24,  79 => 20,  73 => 19,  69 => 17,  65 => 16,  60 => 14,  56 => 12,  53 => 11,  47 => 8,  42 => 7,  37 => 4,  34 => 3,  15 => 1,);
+        return array (  119 => 37,  108 => 33,  104 => 32,  95 => 28,  89 => 27,  85 => 25,  81 => 24,  76 => 21,  70 => 18,  67 => 17,  65 => 16,  60 => 14,  56 => 12,  53 => 11,  47 => 8,  42 => 7,  37 => 4,  34 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -136,6 +152,14 @@ Index
 
 <section class=\"container\">
 <h1>Mon super {{title}} blog !</h1>
+
+{% if session.flash  %}
+<div class=\"alert alert-success\" role=\"alert\">
+  <strong>Well done!</strong> {{ session.flash }}
+</div>
+{% endif %}
+
+
 <p>Derniers billets du blog :</p>
 {% for item in posts %}
 <div class=\"news border border-info\">

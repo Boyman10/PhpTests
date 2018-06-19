@@ -63,7 +63,6 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
           Features
         </a>
         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-          <a class=\"dropdown-item\" href=\"/mvc/?action=addpost\">Add new Post</a>
           <a class=\"dropdown-item\" href=\"/mvc/?action=listPosts\">All articles</a>
           <div class=\"dropdown-divider\"></div>
           <a class=\"dropdown-item\" href=\"#\">Something else here</a>
@@ -82,14 +81,14 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
     
     
         <div id=\"content\">";
-        // line 58
+        // line 57
         $this->displayBlock('content', $context, $blocks);
         echo "</div>
         <div id=\"footer\">
             ";
-        // line 60
+        // line 59
         $this->displayBlock('footer', $context, $blocks);
-        // line 63
+        // line 62
         echo "        </div>
         
         <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
@@ -115,15 +114,15 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
     {
     }
 
-    // line 58
+    // line 57
     public function block_content($context, array $blocks = array())
     {
     }
 
-    // line 60
+    // line 59
     public function block_footer($context, array $blocks = array())
     {
-        // line 61
+        // line 60
         echo "                &copy; Copyright 2018 by <a href=\"/\">you</a>.
             ";
     }
@@ -135,7 +134,7 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
 
     public function getDebugInfo()
     {
-        return array (  127 => 61,  124 => 60,  119 => 58,  109 => 9,  106 => 8,  103 => 7,  93 => 63,  91 => 60,  86 => 58,  37 => 11,  35 => 7,  27 => 1,);
+        return array (  126 => 60,  123 => 59,  118 => 57,  108 => 9,  105 => 8,  102 => 7,  92 => 62,  90 => 59,  85 => 57,  37 => 11,  35 => 7,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -179,7 +178,6 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
           Features
         </a>
         <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-          <a class=\"dropdown-item\" href=\"/mvc/?action=addpost\">Add new Post</a>
           <a class=\"dropdown-item\" href=\"/mvc/?action=listPosts\">All articles</a>
           <div class=\"dropdown-divider\"></div>
           <a class=\"dropdown-item\" href=\"#\">Something else here</a>

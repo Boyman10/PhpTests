@@ -32,9 +32,18 @@ class UserManager extends Manager
         return $user;
     }
     
+    /**
+     * Adding user to DB 
+     * @return $affectedLines
+     */
     public function addUser($params)
     {
+        $db = $this->dbConnect();
         
+        $user = $db->prepare('INSERT INTO mvc_user(user_name, user_email, date_created, user_role) VALUES(?, ?, NOW(), "ROLE_USER")');
+        $affectedLines = $user->execute(array($params['username'], $params['email']));
+        
+        return $affectedLines;
         
     }
     

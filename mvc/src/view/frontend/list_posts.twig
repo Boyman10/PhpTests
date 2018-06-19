@@ -12,6 +12,14 @@ Index
 
 <section class="container">
 <h1>Mon super {{title}} blog !</h1>
+
+{% if session.flash  %}
+<div class="alert alert-success" role="alert">
+  <strong>Well done!</strong> {{ session.flash }}
+</div>
+{% endif %}
+
+
 <p>Derniers billets du blog :</p>
 {% for item in posts %}
 <div class="news border border-info">

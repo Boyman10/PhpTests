@@ -58,7 +58,7 @@ class __TwigTemplate_1e41d08e410448101d22aae721302757bf65fe037ae52dde540152a77e4
 
 
 
-\t<form>
+\t<form method=\"POST\" action=\"?action=register\">
 \t\t<div class=\"form-group\">
 \t\t\t<label for=\"username\">Username</label> <input
 \t\t\t\ttype=\"text\" class=\"form-control\" id=\"username\" name=\"username\"
@@ -116,7 +116,7 @@ class __TwigTemplate_1e41d08e410448101d22aae721302757bf65fe037ae52dde540152a77e4
 
 
 
-\t<form>
+\t<form method=\"POST\" action=\"?action=register\">
 \t\t<div class=\"form-group\">
 \t\t\t<label for=\"username\">Username</label> <input
 \t\t\t\ttype=\"text\" class=\"form-control\" id=\"username\" name=\"username\"

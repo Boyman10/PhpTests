@@ -49,8 +49,14 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
       <li class=\"nav-item active\">
         <a class=\"nav-link\" href=\"/mvc/\">Home <span class=\"sr-only\">(current)</span></a>
       </li>
-      <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"#\">admin</a>
+      <li class=\"nav-item dropdown\" >
+        <a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">administration</a>
+        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+          <a class=\"dropdown-item\" href=\"/mvc/?action=users\">Users</a>
+          <a class=\"dropdown-item\" href=\"/mvc/?action=adduser\">Add user</a>
+          <div class=\"dropdown-divider\"></div>
+          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
+        </div>
       </li>
       <li class=\"nav-item dropdown\">
         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
@@ -76,14 +82,14 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
     
     
         <div id=\"content\">";
-        // line 52
+        // line 58
         $this->displayBlock('content', $context, $blocks);
         echo "</div>
         <div id=\"footer\">
             ";
-        // line 54
+        // line 60
         $this->displayBlock('footer', $context, $blocks);
-        // line 57
+        // line 63
         echo "        </div>
         
         <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
@@ -109,15 +115,15 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
     {
     }
 
-    // line 52
+    // line 58
     public function block_content($context, array $blocks = array())
     {
     }
 
-    // line 54
+    // line 60
     public function block_footer($context, array $blocks = array())
     {
-        // line 55
+        // line 61
         echo "                &copy; Copyright 2018 by <a href=\"/\">you</a>.
             ";
     }
@@ -129,7 +135,7 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
 
     public function getDebugInfo()
     {
-        return array (  121 => 55,  118 => 54,  113 => 52,  103 => 9,  100 => 8,  97 => 7,  87 => 57,  85 => 54,  80 => 52,  37 => 11,  35 => 7,  27 => 1,);
+        return array (  127 => 61,  124 => 60,  119 => 58,  109 => 9,  106 => 8,  103 => 7,  93 => 63,  91 => 60,  86 => 58,  37 => 11,  35 => 7,  27 => 1,);
     }
 
     public function getSourceContext()
@@ -159,8 +165,14 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
       <li class=\"nav-item active\">
         <a class=\"nav-link\" href=\"/mvc/\">Home <span class=\"sr-only\">(current)</span></a>
       </li>
-      <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"#\">admin</a>
+      <li class=\"nav-item dropdown\" >
+        <a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">administration</a>
+        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+          <a class=\"dropdown-item\" href=\"/mvc/?action=users\">Users</a>
+          <a class=\"dropdown-item\" href=\"/mvc/?action=adduser\">Add user</a>
+          <div class=\"dropdown-divider\"></div>
+          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
+        </div>
       </li>
       <li class=\"nav-item dropdown\">
         <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">

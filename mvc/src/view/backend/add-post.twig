@@ -1,0 +1,33 @@
+{% extends "template.twig" %} 
+
+{% block title %}Backoffice - Adding post form{% endblock %} 
+{% block head %} {{ parent() }}
+
+{% endblock %} 
+
+{% block content %}
+<div class="container">
+<h1>{{title}}</h1>
+
+
+
+	<form>
+		<div class="form-group">
+			<label for="username">Title</label> <input
+				type="text" class="form-control" id="title" name="title"
+				aria-describedby="postHelp" placeholder="Enter title of post"> 
+		</div>
+		
+		<div class="form-group">
+			<label for="content">Content</label> 
+			<textarea name="content" class="form-control" id="content"></textarea> 
+		</div>
+
+			<input type="hidden" name="token" id="title" value="{{ token }}">
+
+		
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+
+{% endblock %}

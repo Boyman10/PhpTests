@@ -18,7 +18,6 @@ require_once("vendor/autoload.php");
 
 use OC\Controller;
 
-
 $controller = new Controller\Controller();
 $backController = new Controller\BackController();
 
@@ -94,13 +93,13 @@ try { // On essaie de faire des choses
         elseif ($_GET['action'] == 'addpost') {
             
             // Check session parameter @TODO
-            if (!empty($_POST['author']) && !empty($_POST['content']) && !empty($_POST['title'])) {
+            if (!empty($_POST['token']) && !empty($_POST['content']) && !empty($_POST['title'])) {
                 
-                $controller->addPost($_POST);
+                $backController->addPost($_POST);
                 
             } else {
                 // print the form here
-                $controller->addPost();
+                $backController->addPost();
             }
         }
         
@@ -112,3 +111,6 @@ try { // On essaie de faire des choses
 } catch (Exception $e) { // S'il y a eu une erreur, alors...
     echo 'Erreur : ' . $e->getMessage();
 }
+
+unset($_SESSION['flash']);
+
