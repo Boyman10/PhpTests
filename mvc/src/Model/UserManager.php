@@ -38,10 +38,20 @@ class UserManager extends Manager
      */
     public function addUser($params)
     {
-        $db = $this->dbConnect();
+        $affectedLines = 0;
         
-        $user = $db->prepare('INSERT INTO mvc_user(user_name, user_email, date_created, user_role, user_pass) VALUES(?, ?, NOW(), "ROLE_USER")');
-        $affectedLines = $user->execute(array($params['username'], $params['email'], $params['pass']));
+        try {
+            $db = $this->dbConnect();
+            
+            $user = $db->prepare('INSERT INTO mvc_user(user_name, user_email, date_created, user_role, user_pass) 
+                                    VALUES(?, ?, NOW(), "ROLE_USER",?)');
+            $affectedLines = $user->execute(array($params['username'], $params['email'], $params['pass']));
+        
+        }
+        catch (\PDOException $e) {
+            $_SESSION['flash'] = "Error : ". $e->getMessage();
+
+        }
         
         return $affectedLines;
         

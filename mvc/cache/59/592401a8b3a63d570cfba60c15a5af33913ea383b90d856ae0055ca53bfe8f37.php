@@ -16,6 +16,7 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
         $this->blocks = array(
             'head' => array($this, 'block_head'),
             'title' => array($this, 'block_title'),
+            'alert' => array($this, 'block_alert'),
             'content' => array($this, 'block_content'),
             'footer' => array($this, 'block_footer'),
         );
@@ -79,16 +80,21 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
   </div>
 </nav>
     
+    ";
+        // line 56
+        $this->displayBlock('alert', $context, $blocks);
+        // line 65
+        echo "    
     
         <div id=\"content\">";
-        // line 57
+        // line 67
         $this->displayBlock('content', $context, $blocks);
         echo "</div>
         <div id=\"footer\">
             ";
-        // line 59
+        // line 69
         $this->displayBlock('footer', $context, $blocks);
-        // line 62
+        // line 72
         echo "        </div>
         
         <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
@@ -114,15 +120,37 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
     {
     }
 
-    // line 57
+    // line 56
+    public function block_alert($context, array $blocks = array())
+    {
+        // line 57
+        echo "    <div id=\"alert-msg\" class=\"container\">
+    ";
+        // line 58
+        if (twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "flash", array())) {
+            // line 59
+            echo "        <div class=\"alert alert-success\" role=\"alert\">
+          <strong>Well done!</strong> ";
+            // line 60
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["session"] ?? null), "flash", array()), "html", null, true);
+            echo "
+        </div>
+    ";
+        }
+        // line 63
+        echo "    </div>
+    ";
+    }
+
+    // line 67
     public function block_content($context, array $blocks = array())
     {
     }
 
-    // line 59
+    // line 69
     public function block_footer($context, array $blocks = array())
     {
-        // line 60
+        // line 70
         echo "                &copy; Copyright 2018 by <a href=\"/\">you</a>.
             ";
     }
@@ -134,7 +162,7 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
 
     public function getDebugInfo()
     {
-        return array (  126 => 60,  123 => 59,  118 => 57,  108 => 9,  105 => 8,  102 => 7,  92 => 62,  90 => 59,  85 => 57,  37 => 11,  35 => 7,  27 => 1,);
+        return array (  154 => 70,  151 => 69,  146 => 67,  141 => 63,  135 => 60,  132 => 59,  130 => 58,  127 => 57,  124 => 56,  114 => 9,  111 => 8,  108 => 7,  98 => 72,  96 => 69,  91 => 67,  87 => 65,  85 => 56,  38 => 11,  36 => 7,  28 => 1,);
     }
 
     public function getSourceContext()
@@ -193,6 +221,16 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
     </form>
   </div>
 </nav>
+    
+    {% block alert %}
+    <div id=\"alert-msg\" class=\"container\">
+    {% if session.flash  %}
+        <div class=\"alert alert-success\" role=\"alert\">
+          <strong>Well done!</strong> {{ session.flash }}
+        </div>
+    {% endif %}
+    </div>
+    {% endblock %}
     
     
         <div id=\"content\">{% block content %}{% endblock %}</div>

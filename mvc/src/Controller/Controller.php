@@ -33,8 +33,7 @@ class Controller extends Application
         
         echo $template->render(array(
             'posts' => $posts,
-            'title' => 'test',
-            'session' => $_SESSION
+            'title' => 'test'
         ));
         
         } catch(Exception $e) {

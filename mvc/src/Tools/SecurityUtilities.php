@@ -53,6 +53,8 @@ class SecurityUtilities
             'remoteip' => $this->remoteip
         );
         
+        $fields_string = "";
+        
         //url-ify the data for the POST
         foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
         rtrim($fields_string, '&');
@@ -85,12 +87,27 @@ class SecurityUtilities
     
     /**
      * Method generating password hash
-     * @return $pass
+     * @see https://github.com/ircmaxell/password_compat
+     * @param $pass
+     * @return hash of $pass
      */
     public function hashPass($pass) : string
     {
-     
-        return password_hash(htmlspecialchars($pass),);
+        return password_hash($pass, PASSWORD_BCRYPT, array("cost" => 10));
     }
+    
+    
+    /**
+     * Method verifying password
+     * @see https://github.com/ircmaxell/password_compat
+     * @param $pass
+     * @param $hash -- from db
+     * @return boolean
+     */
+    public function verifyPass($pass, $hash) : bool
+    {
+        return password_verify($pass, $hash);
+    }
+    
     
 }

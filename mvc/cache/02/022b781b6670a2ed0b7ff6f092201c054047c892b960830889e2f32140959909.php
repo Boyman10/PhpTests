@@ -16,6 +16,7 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
         $this->blocks = array(
             'head' => array($this, 'block_head'),
             'title' => array($this, 'block_title'),
+            'alert' => array($this, 'block_alert'),
             'content' => array($this, 'block_content'),
             'footer' => array($this, 'block_footer'),
         );
@@ -37,59 +38,26 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
         echo "    </head>
     <body>
     
-    
-<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
-  <a class=\"navbar-brand\" href=\"#\">BLOG</a>
-  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-    <span class=\"navbar-toggler-icon\"></span>
-  </button>
-
-  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
-    <ul class=\"navbar-nav mr-auto\">
-      <li class=\"nav-item active\">
-        <a class=\"nav-link\" href=\"/mvc/\">Home <span class=\"sr-only\">(current)</span></a>
-      </li>
-      <li class=\"nav-item dropdown\" >
-        <a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">administration</a>
-        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-          <a class=\"dropdown-item\" href=\"/mvc/?action=users\">Users</a>
-          <a class=\"dropdown-item\" href=\"/mvc/?action=adduser\">Add user</a>
-          <div class=\"dropdown-divider\"></div>
-          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-        </div>
-      </li>
-      <li class=\"nav-item dropdown\">
-        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-          Features
-        </a>
-        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-          <a class=\"dropdown-item\" href=\"/mvc/?action=addpost\">Add new Post</a>
-          <a class=\"dropdown-item\" href=\"/mvc/?action=listPosts\">All articles</a>
-          <div class=\"dropdown-divider\"></div>
-          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-        </div>
-      </li>
-      <li class=\"nav-item\">
-        <a class=\"nav-link disabled\" href=\"#\">Disabled</a>
-      </li>
-    </ul>
-    <form class=\"form-inline my-2 my-lg-0\">
-      <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">
-      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>
-    </form>
-  </div>
-</nav>
-    
+    ";
+        // line 14
+        $this->loadTemplate("_include/menu.html.twig", "template.twig", 14)->display($context);
+        // line 15
+        echo "    
+        ";
+        // line 16
+        $this->displayBlock('alert', $context, $blocks);
+        // line 25
+        echo "    
     
         <div id=\"content\">";
-        // line 58
+        // line 27
         $this->displayBlock('content', $context, $blocks);
         echo "</div>
         <div id=\"footer\">
             ";
-        // line 60
+        // line 29
         $this->displayBlock('footer', $context, $blocks);
-        // line 63
+        // line 32
         echo "        </div>
         
         <script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
@@ -115,15 +83,37 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
     {
     }
 
-    // line 58
+    // line 16
+    public function block_alert($context, array $blocks = array())
+    {
+        // line 17
+        echo "        <div id=\"alert-msg\" class=\"container\">
+        ";
+        // line 18
+        if (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "session", array()), "get", array(0 => "flash"), "method")) {
+            // line 19
+            echo "            <div class=\"alert alert-success\" role=\"alert\">
+              <strong>Well done!</strong> ";
+            // line 20
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["app"] ?? null), "session", array()), "get", array(0 => "flash"), "method"), "html", null, true);
+            echo "
+            </div>
+        ";
+        }
+        // line 23
+        echo "        </div>
+        ";
+    }
+
+    // line 27
     public function block_content($context, array $blocks = array())
     {
     }
 
-    // line 60
+    // line 29
     public function block_footer($context, array $blocks = array())
     {
-        // line 61
+        // line 30
         echo "                &copy; Copyright 2018 by <a href=\"/\">you</a>.
             ";
     }
@@ -133,9 +123,14 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
         return "template.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  127 => 61,  124 => 60,  119 => 58,  109 => 9,  106 => 8,  103 => 7,  93 => 63,  91 => 60,  86 => 58,  37 => 11,  35 => 7,  27 => 1,);
+        return array (  117 => 30,  114 => 29,  109 => 27,  104 => 23,  98 => 20,  95 => 19,  93 => 18,  90 => 17,  87 => 16,  77 => 9,  74 => 8,  71 => 7,  61 => 32,  59 => 29,  54 => 27,  50 => 25,  48 => 16,  45 => 15,  43 => 14,  38 => 11,  36 => 7,  28 => 1,);
     }
 
     public function getSourceContext()
@@ -153,48 +148,17 @@ class __TwigTemplate_502ca7d2d9922ca49fa04b6e101dd27c64cd3806fb03cd72b5f5d761505
     </head>
     <body>
     
+    {% include '_include/menu.html.twig' %}
     
-<nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
-  <a class=\"navbar-brand\" href=\"#\">BLOG</a>
-  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
-    <span class=\"navbar-toggler-icon\"></span>
-  </button>
-
-  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
-    <ul class=\"navbar-nav mr-auto\">
-      <li class=\"nav-item active\">
-        <a class=\"nav-link\" href=\"/mvc/\">Home <span class=\"sr-only\">(current)</span></a>
-      </li>
-      <li class=\"nav-item dropdown\" >
-        <a class=\"nav-link dropdown-toggle\" href=\"#\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">administration</a>
-        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-          <a class=\"dropdown-item\" href=\"/mvc/?action=users\">Users</a>
-          <a class=\"dropdown-item\" href=\"/mvc/?action=adduser\">Add user</a>
-          <div class=\"dropdown-divider\"></div>
-          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
+        {% block alert %}
+        <div id=\"alert-msg\" class=\"container\">
+        {% if app.session.get('flash')  %}
+            <div class=\"alert alert-success\" role=\"alert\">
+              <strong>Well done!</strong> {{ app.session.get('flash') }}
+            </div>
+        {% endif %}
         </div>
-      </li>
-      <li class=\"nav-item dropdown\">
-        <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-          Features
-        </a>
-        <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
-          <a class=\"dropdown-item\" href=\"/mvc/?action=addpost\">Add new Post</a>
-          <a class=\"dropdown-item\" href=\"/mvc/?action=listPosts\">All articles</a>
-          <div class=\"dropdown-divider\"></div>
-          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
-        </div>
-      </li>
-      <li class=\"nav-item\">
-        <a class=\"nav-link disabled\" href=\"#\">Disabled</a>
-      </li>
-    </ul>
-    <form class=\"form-inline my-2 my-lg-0\">
-      <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">
-      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Search</button>
-    </form>
-  </div>
-</nav>
+        {% endblock %}
     
     
         <div id=\"content\">{% block content %}{% endblock %}</div>

@@ -43,7 +43,7 @@ class BackController extends Application
                 $securityTool = new SecurityUtilities();
                 $securityTool->recaptchaCheck($params['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
                 
-                $params['pass'] = $securityTook->hashPass($params['pass']);
+                $params['pass'] = $securityTool->hashPass($params['pass']);
                 
                 // Treat the form here :
                 $userManager = new UserManager();

@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    
-        {% block head %}
-            <link rel="stylesheet" href="/mvc/src/public/css/style.css" />
-            <title>{% block title %}{% endblock %} - My Webpage with Twig</title>
-        {% endblock %}
-    </head>
-    <body>
-    
-    
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">BLOG</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,8 +13,8 @@
       <li class="nav-item dropdown" >
         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">administration</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/mvc/?action=login">Sign in</a>
-          <a class="dropdown-item" href="/mvc/?action=register">Register</a>
+          <a class="dropdown-item" href="/mvc/?action=users">Users</a>
+          <a class="dropdown-item" href="/mvc/?action=adduser">Add user</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
@@ -37,6 +24,7 @@
           Features
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/mvc/?action=addpost">Add new Post</a>
           <a class="dropdown-item" href="/mvc/?action=listPosts">All articles</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -53,26 +41,3 @@
   </div>
 </nav>
     
-    {% block alert %}
-    <div id="alert-msg" class="container">
-    {% if session.flash  %}
-        <div class="alert alert-success" role="alert">
-          <strong>Well done!</strong> {{ session.flash }}
-        </div>
-    {% endif %}
-    </div>
-    {% endblock %}
-    
-    
-        <div id="content">{% block content %}{% endblock %}</div>
-        <div id="footer">
-            {% block footer %}
-                &copy; Copyright 2018 by <a href="/">you</a>.
-            {% endblock %}
-        </div>
-        
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
-</html>
