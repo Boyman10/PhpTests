@@ -24,6 +24,8 @@ abstract class Application
             'cache' => __DIR__ . '/../../cache/',
             'debug' => true
         ));
+        
+        $this->twig->addGlobal('session', $_SESSION);
     }
 
 }

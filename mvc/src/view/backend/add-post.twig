@@ -2,6 +2,7 @@
 
 {% block title %}Backoffice - Adding post form{% endblock %} 
 {% block head %} {{ parent() }}
+ <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 
 {% endblock %} 
 
@@ -11,7 +12,7 @@
 
 
 
-	<form>
+	<form method="post" action="?action=addpost">
 		<div class="form-group">
 			<label for="username">Title</label> <input
 				type="text" class="form-control" id="title" name="title"
@@ -30,4 +31,14 @@
 	</form>
 </div>
 
+  <script>
+  tinymce.init({
+	    selector:   "textarea",
+	    width:      '100%',
+	    height:     500,
+
+	});
+
+  </script>
+  
 {% endblock %}

@@ -67,4 +67,33 @@ class PostManager extends Manager
         
         return $post;
     }
+    
+    /**
+     * Adding post to DB
+     * @return $affectedLines
+     */
+    public function addPost($params)
+    {
+        $affectedLines = 0;
+        
+        try {
+            $db = $this->dbConnect();
+            
+            $post = $db->prepare('INSERT INTO mvc_post(user_id, title, content, creation_date)
+                                    VALUES(:uid, :title, :content, NOW())');
+            $post->bindValue(':uid', $_SESSION['user']->getId(), PDO::PARAM_INT);
+            $post->bindValue(':title', $params['title'], PDO::PARAM_STR);
+            $post->bindValue(':uid',  $params['content'], PDO::PARAM_STR);
+            
+            $affectedLines = $post->execute();
+            
+        }
+        catch (\PDOException $e) {
+            $_SESSION['flash'] = "Error : ". $e->getMessage();
+            
+        }
+
+        return $affectedLines;
+        
+    }
 }

@@ -22,13 +22,51 @@ class BackController extends Application
         parent::__construct(1);
     }
 
-    public function login()
+    /**
+     * Admin interface
+     */
+    public function admin()
     {
-        $template = $this->twig->load('login.twig');
+        
+        $template = $this->twig->load('admin.twig');
         
         echo $template->render(array(
-            "title" => 'Sign in'
+            "title" => 'Administrative interface'
         ));
+    }
+    
+    /**
+     * Login features - retrieving user
+     */
+    public function login($params = [])
+    {
+        if (isset($params['username']) && !empty($params['username']) && ! empty($params['pass']) ) {
+            
+            $userManager = new UserManager();
+            $user = $userManager->getUserByIds($params);
+            
+            $securityTool = new SecurityUtilities();
+            
+            // check password
+            if ($securityTool->verifyPass($params['pass'], $user->getUserPass()))
+            {
+                // Adding an object to session :
+                $_SESSION['user'] = serialize($user);
+                $_SESSION['flash'] = "Welcome back ".$user->getUserName()." !";
+                
+                header('Location: /mvc/index.php?action=listPosts');
+                exit();
+            } else {
+                throw new Exception("Sthg wrong with ids !");
+            }
+            
+        } else {
+            $template = $this->twig->load('login.twig');
+            
+            echo $template->render(array(
+                "title" => 'Sign in'
+            ));
+        }
     }
 
     public function register($params)
@@ -80,7 +118,15 @@ class BackController extends Application
             } else {
                 // Treat the form here :
                 $postManager = new PostManager();
-                addPost($params);
+                $nb = $postManager->addPost($params);
+                
+                $_SESSION['flash'] = "Post successfully added !";
+                
+                if ($nb > 0)
+                {
+                    header('Location: /mvc/index.php?action=listPosts');
+                    exit();
+                }
             }
         } else {
             

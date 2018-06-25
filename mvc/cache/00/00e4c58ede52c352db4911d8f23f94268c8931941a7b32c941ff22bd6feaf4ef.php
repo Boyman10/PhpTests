@@ -58,16 +58,16 @@ class __TwigTemplate_3589f572e3d930f53875fa774ac423f95f3ac78f89e0244779575906076
 
 
 
-\t<form>
+\t<form action=\"?action=login\" method=\"post\">
 \t\t<div class=\"form-group\">
-\t\t\t<label for=\"username\">Username</label> <input
+\t\t\t<label for=\"username\">Username</label> <input name=\"username\"
 \t\t\t\ttype=\"text\" class=\"form-control\" id=\"username\"
 \t\t\t\taria-describedby=\"authorHelp\" placeholder=\"Enter user name\"> <small
 \t\t\t\tid=\"authorHelp\" class=\"form-text text-muted\">User name or email</small>
 \t\t</div>
 \t\t<div class=\"form-group\">
 \t\t\t<label for=\"password\">Password</label> 
-\t\t\t<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"password\">
+\t\t\t<input type=\"password\" class=\"form-control\" id=\"title\" name=\"pass\" placeholder=\"password\">
 \t\t</div>
 
 \t\t<button type=\"submit\" class=\"btn btn-primary\">Submit</button>
@@ -107,16 +107,16 @@ class __TwigTemplate_3589f572e3d930f53875fa774ac423f95f3ac78f89e0244779575906076
 
 
 
-\t<form>
+\t<form action=\"?action=login\" method=\"post\">
 \t\t<div class=\"form-group\">
-\t\t\t<label for=\"username\">Username</label> <input
+\t\t\t<label for=\"username\">Username</label> <input name=\"username\"
 \t\t\t\ttype=\"text\" class=\"form-control\" id=\"username\"
 \t\t\t\taria-describedby=\"authorHelp\" placeholder=\"Enter user name\"> <small
 \t\t\t\tid=\"authorHelp\" class=\"form-text text-muted\">User name or email</small>
 \t\t</div>
 \t\t<div class=\"form-group\">
 \t\t\t<label for=\"password\">Password</label> 
-\t\t\t<input type=\"password\" class=\"form-control\" id=\"title\" placeholder=\"password\">
+\t\t\t<input type=\"password\" class=\"form-control\" id=\"title\" name=\"pass\" placeholder=\"password\">
 \t\t</div>
 
 \t\t<button type=\"submit\" class=\"btn btn-primary\">Submit</button>

@@ -19,37 +19,41 @@ class User extends Model
      *
      * @var String $userName
      */
-    private $userName;
+    private $user_name;
     
     /**
      * either ROLE_USER, ROLE_ADMIN...
      * @var String $userRole
      */
-    private $userRole;
+    private $user_role;
     
     /**
      * @var $dateCreated;
      */
-    private $dateCreated;
+    private $date_created;
     
     /**
      * @var $userEmail;
      */
-    private $userEmail;
+    private $user_email;
 
-
+    /**
+     * @var $userPass;
+     */
+    private $user_pass;
+    
     public function getUserName(): string
     {
-        return $this->userName;
+        return $this->user_name;
     }
     public function getUserEmail(): string
     {
-        return $this->userEmail;
+        return $this->user_email;
     }
     
     public function getDateCreated(): string
     {
-        return $this->dateCreated;
+        return $this->date_created;
     }
     
     public function getId(): int
@@ -62,26 +66,34 @@ class User extends Model
     }
     public function getUserRole(): string
     {
-        return $this->userRole;
+        return $this->user_role;
     }
 
     public function setUserName(string $name)
     {
-        $this->userName = $name;
+        $this->user_name = $name;
     }
-
+    public function getUserPass(): string
+    {
+        return $this->user_pass;
+    }
+    
+    public function setUserPass(string $pass)
+    {
+        $this->user_pass = $pass;
+    }
     public function setUserEmail(string $email)
     {
-        $this->userEmail = $email;
+        $this->user_email = $email;
     }
     
     public function setDateCreated(string $dateCreated)
     {
-        $this->dateCreated = $dateCreated;
+        $this->date_created = $dateCreated;
     }
     
     public function setUserRole(string $role)
     {
-        $this->userRole = $role;
+        $this->user_role = $role;
     }
 }

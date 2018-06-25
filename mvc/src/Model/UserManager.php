@@ -13,17 +13,17 @@ class UserManager extends Manager
         
         try {
             $db = $this->dbConnect();
-            $req = $db->prepare('SELECT * FROM mvc_user WHERE (user_name = ? OR user_email = ?) AND password = ?');
+            $req = $db->prepare('SELECT * FROM mvc_user WHERE (user_name = ? OR user_email = ?)');
             
-            $req->bindParam(1, $params['username'], PDO::PARAM_STR, 25);
-            $req->bindParam(2, $params['username'], PDO::PARAM_STR, 25);
-            $req->bindParam(2, $params['pass'], PDO::PARAM_STR, 120);
+            $req->bindParam(1, $params['username'], \PDO::PARAM_STR, 25);
+            $req->bindParam(2, $params['username'], \PDO::PARAM_STR, 25);
             
             $req->execute();
                         
-            $req->setFetchMode(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE, "User");
+            $req->setFetchMode(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE, User::class);
             
             $user = $req->fetch();
+
         }
         catch (PDOException $e) {
             echo "Error: " . $e->getMessage();

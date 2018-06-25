@@ -68,6 +68,7 @@ try { // On essaie de faire des choses
             } elseif(!empty($_POST['username']) && !empty($_POST['pass'])) {
                 
                 // Treat the login form here :
+                $backController->login($_POST);
                 
             } else {
                 $backController->login();
@@ -92,14 +93,20 @@ try { // On essaie de faire des choses
          */
         elseif ($_GET['action'] == 'addpost') {
             
-            // Check session parameter @TODO
-            if (!empty($_POST['token']) && !empty($_POST['content']) && !empty($_POST['title'])) {
-                
-                $backController->addPost($_POST);
-                
+            if (isset($_SESSION['user'])) {
+                // Check session parameter @TODO
+                if (!empty($_POST['token']) && !empty($_POST['content']) && !empty($_POST['title'])) {
+                    
+                    $backController->addPost($_POST);
+                    
+                } else {
+                    // print the form here
+                    $backController->addPost(null);
+                }
             } else {
-                // print the form here
-                $backController->addPost();
+                
+                $_SESSION['flash'] = "You must be logged in to access this page !";
+                $controller->listPosts();
             }
         }
         
