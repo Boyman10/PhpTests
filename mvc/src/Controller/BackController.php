@@ -51,7 +51,7 @@ class BackController extends Application
             if ($securityTool->verifyPass($params['pass'], $user->getUserPass()))
             {
                 // Adding an object to session :
-                $_SESSION['user'] = serialize($user);
+                $_SESSION['user'] = $user;
                 $_SESSION['flash'] = "Welcome back ".$user->getUserName()." !";
                 
                 header('Location: /mvc/index.php?action=listPosts');
