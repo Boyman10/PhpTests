@@ -6,6 +6,7 @@ use OC\Model\PostManager;
 use OC\Model\CommentManager;
 use OC\Model\UserManager;
 use OC\Tools\SecurityUtilities;
+use OC\Tools\Session;
 
 /**
  * This is the Contoller for the backoffice
