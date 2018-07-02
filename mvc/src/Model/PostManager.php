@@ -6,6 +6,7 @@ namespace OC\Model;
 use OC\Model\Manager;
 use OC\Model\Entity\Post;
 use OC\Model\Entity\User;
+use OC\Tools\Session;
 
 // require_once("model/Manager.php"); // Vous n'alliez pas oublier cette ligne ? ;o)
 class PostManager extends Manager
@@ -28,7 +29,7 @@ class PostManager extends Manager
             while($post = $req->fetch()) {
                 
                 $post_line = ["id" => $post['id'], "title" => $post['title'], "content" => $post['content'], "dateCreation" => $post['dateCreation']]; // first array with post details
-                $author_line = ["id" => $post['uid'], "user_name" => $post['user_name'], "user_email" => $post['user_email'], "user_role" => $post['user_role']]; // second array with author details
+                $author_line = ["id" => (int) $post['uid'], "user_name" => $post['user_name'], "user_email" => $post['user_email'], "user_role" => $post['user_role']]; // second array with author details
                                 
                 $author = new User($author_line);
                 $cur_post = new Post($post_line);
@@ -79,7 +80,8 @@ class PostManager extends Manager
         try {
             $db = $this->dbConnect();
             
-            $user = $_SESSION['user'];
+            Session::start();
+            $user = Session::get('user');
                         
             $post = $db->prepare('INSERT INTO mvc_post(user_id, title, content, creation_date)
                                     VALUES(:uid, :title, :content, NOW())');

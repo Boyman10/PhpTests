@@ -94,6 +94,9 @@ try { // On essaie de faire des choses
         /**
          * BACKEND
          */
+        elseif ($_GET['action'] == 'logout') {
+            $backController->logout();
+        }
         elseif ($_GET['action'] == 'addpost') {
             
             // Check session

@@ -7,7 +7,6 @@ use OC\Model\CommentManager;
 use OC\Model\UserManager;
 use OC\Tools\SecurityUtilities;
 use OC\Tools\Session;
-
 /**
  * This is the Contoller for the backoffice
  *
@@ -52,7 +51,9 @@ class BackController extends Application
             if ($user && $securityTool->verifyPass($params['pass'], $user->getUserPass()))
             {
                 // Adding an object to session :
-                $_SESSION['user'] = $user;
+                Session::start();
+                Session::set('user',$user);
+                
                 $_SESSION['flash'] = "Welcome back ".$user->getUserName()." !";
                 
                 header('Location: /mvc/index.php?action=listPosts');
@@ -68,6 +69,16 @@ class BackController extends Application
                 "title" => 'Sign in'
             ));
         }
+    }
+    
+    /**
+     * Logout method
+     */
+    public function logout() 
+    {
+        Session::destroy();
+        header('Location: /mvc/index.php?action=listPosts');
+        exit();
     }
 
     public function register($params)

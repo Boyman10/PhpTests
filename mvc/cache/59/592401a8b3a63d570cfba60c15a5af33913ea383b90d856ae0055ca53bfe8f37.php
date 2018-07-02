@@ -56,7 +56,7 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
           <a class=\"dropdown-item\" href=\"/mvc/?action=login\">Sign in</a>
           <a class=\"dropdown-item\" href=\"/mvc/?action=register\">Register</a>
           <div class=\"dropdown-divider\"></div>
-          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
+          <a class=\"dropdown-item\" href=\"/mvc/?action=logout\">logout</a>
         </div>
       </li>
       <li class=\"nav-item dropdown\">
@@ -198,7 +198,7 @@ class __TwigTemplate_4e7a5bf9deaea145d5cc8df8a05a14dc0571f76ad7f578ca1971cd975bf
           <a class=\"dropdown-item\" href=\"/mvc/?action=login\">Sign in</a>
           <a class=\"dropdown-item\" href=\"/mvc/?action=register\">Register</a>
           <div class=\"dropdown-divider\"></div>
-          <a class=\"dropdown-item\" href=\"#\">Something else here</a>
+          <a class=\"dropdown-item\" href=\"/mvc/?action=logout\">logout</a>
         </div>
       </li>
       <li class=\"nav-item dropdown\">

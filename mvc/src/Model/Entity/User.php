@@ -13,6 +13,9 @@ namespace OC\Model\Entity;
 class User extends Model
 {
 
+    /**
+     * @var int $id
+     */
     private $id;
 
     /**
@@ -60,7 +63,7 @@ class User extends Model
     {
         return $this->id;
     }
-    public function setId($id)
+    public function setId(int $id)
     {
         $this->id = $id;
     }
