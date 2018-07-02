@@ -23,7 +23,7 @@ class UserManager extends Manager
             $req->setFetchMode(\PDO::FETCH_CLASS|\PDO::FETCH_PROPS_LATE, User::class);
             
             $user = $req->fetch();
-
+            
         }
         catch (PDOException $e) {
             echo "Error: " . $e->getMessage();

@@ -2,6 +2,8 @@
 
 namespace OC\Controller;
 
+use OC\Tools\Session;
+
 /**
  * This is the main class handling default methods for the controllers
  *
@@ -24,6 +26,8 @@ abstract class Application
             'cache' => __DIR__ . '/../../cache/',
             'debug' => true
         ));
+        
+        Session::start();
         
         $this->twig->addGlobal('session', $_SESSION);
     }

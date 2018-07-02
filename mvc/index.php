@@ -62,7 +62,7 @@ try { // On essaie de faire des choses
             Session::start();
             
             // Case session already set :
-            if (isset(Session::has('user'))) {
+            if (Session::has('user')) {
                 
                 $backController->admin();
                 
@@ -82,7 +82,7 @@ try { // On essaie de faire des choses
             // Check session
             Session::start();
             // Case session already set :
-            if (isset(Session::has('user'))) {
+            if (Session::has('user')) {
                 
                 $backController->admin();
                 
@@ -99,7 +99,7 @@ try { // On essaie de faire des choses
             // Check session
             Session::start();
             
-            if (isset(Session::has('user'))) {
+            if (Session::has('user')) {
                 // Check session parameter @TODO
                 if (!empty($_POST['token']) && !empty($_POST['content']) && !empty($_POST['title'])) {
                     

@@ -49,7 +49,7 @@ class BackController extends Application
             $securityTool = new SecurityUtilities();
             
             // check password
-            if ($securityTool->verifyPass($params['pass'], $user->getUserPass()))
+            if ($user && $securityTool->verifyPass($params['pass'], $user->getUserPass()))
             {
                 // Adding an object to session :
                 $_SESSION['user'] = $user;
@@ -58,7 +58,7 @@ class BackController extends Application
                 header('Location: /mvc/index.php?action=listPosts');
                 exit();
             } else {
-                throw new Exception("Sthg wrong with ids !");
+                throw new \Exception("Sthg wrong with ids !");
             }
             
         } else {
