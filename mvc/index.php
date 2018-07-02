@@ -6,9 +6,6 @@
  * @author eddy
  * @since 1.0.0 introduced
  */
-
-session_start();
-
 // https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md
 
 // Composer autoloader :
@@ -17,10 +14,10 @@ require_once("vendor/autoload.php");
 //require('Controller/frontend.php');
 
 use OC\Controller;
+use OC\Tools\Session;
 
 $controller = new Controller\Controller();
 $backController = new Controller\BackController();
-
 
 try { // On essaie de faire des choses
     
@@ -61,10 +58,14 @@ try { // On essaie de faire des choses
         } 
         elseif($_GET['action'] == 'login') 
         {
+            // Check session
+            Session::start();
+            
             // Case session already set :
-            if (isset($_SESSION['user'])) {
+            if (isset(Session::has('user'))) {
                 
                 $backController->admin();
+                
             } elseif(!empty($_POST['username']) && !empty($_POST['pass'])) {
                 
                 // Treat the login form here :
@@ -78,8 +79,10 @@ try { // On essaie de faire des choses
         } 
         elseif ($_GET['action'] == 'register')
         {
+            // Check session
+            Session::start();
             // Case session already set :
-            if (isset($_SESSION['user'])) {
+            if (isset(Session::has('user'))) {
                 
                 $backController->admin();
                 
@@ -93,7 +96,10 @@ try { // On essaie de faire des choses
          */
         elseif ($_GET['action'] == 'addpost') {
             
-            if (isset($_SESSION['user'])) {
+            // Check session
+            Session::start();
+            
+            if (isset(Session::has('user'))) {
                 // Check session parameter @TODO
                 if (!empty($_POST['token']) && !empty($_POST['content']) && !empty($_POST['title'])) {
                     
@@ -105,7 +111,10 @@ try { // On essaie de faire des choses
                 }
             } else {
                 
-                $_SESSION['flash'] = "You must be logged in to access this page !";
+                // $_SESSION['flash'] = ;
+                
+                Session::set('flash',"You must be logged in to access this page !");
+                
                 $controller->listPosts();
             }
         }
@@ -119,5 +128,7 @@ try { // On essaie de faire des choses
     echo 'Erreur : ' . $e->getMessage();
 }
 
-unset($_SESSION['flash']);
+Session::start();
+Session::forget('flash');
+//unset($_SESSION['flash']);
 

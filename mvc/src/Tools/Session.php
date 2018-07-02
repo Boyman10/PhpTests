@@ -1,4 +1,7 @@
 <?php
+
+namespace OC\Tools;
+
 /**
  * Session wrapper - real simple - to improve
  * @author silex
