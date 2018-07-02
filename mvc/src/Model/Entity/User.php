@@ -45,6 +45,14 @@ class User extends Model
      */
     private $user_pass;
     
+    /**
+     * Waking up properly after unserializing...
+     */
+    public function __wakeup()
+    {
+        $this->id = (int) $this->id;
+    }
+    
     public function getUserName(): string
     {
         return $this->user_name;

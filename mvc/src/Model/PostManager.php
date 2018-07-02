@@ -81,13 +81,12 @@ class PostManager extends Manager
             $db = $this->dbConnect();
             
             Session::start();
-            $user = Session::get('user');
                         
             $post = $db->prepare('INSERT INTO mvc_post(user_id, title, content, creation_date)
                                     VALUES(:uid, :title, :content, NOW())');
-            $post->bindValue(':uid', $user->getId(), PDO::PARAM_INT);
-            $post->bindValue(':title', $params['title'], PDO::PARAM_STR);
-            $post->bindValue(':uid',  $params['content'], PDO::PARAM_STR);
+            $post->bindValue(':uid', (Session::get('user'))->getId(), \PDO::PARAM_INT);
+            $post->bindValue(':title', $params['title'], \PDO::PARAM_STR);
+            $post->bindValue(':content',  $params['content'], \PDO::PARAM_STR);
             
             $affectedLines = $post->execute();
             
