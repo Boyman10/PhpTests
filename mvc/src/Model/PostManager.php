@@ -56,11 +56,27 @@ class PostManager extends Manager
         
         try {
             $db = $this->dbConnect();
-            $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creationDate FROM posts WHERE id = ?');
-            $req->execute(array(
-                $postId
-                ));
+            $req = $db->prepare('SELECT mvc_post.id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS dateCreation,
+                            mvc_user.id as uid,user_name,user_email,user_role
+                           FROM mvc_post LEFT JOIN mvc_user ON mvc_user.id = user_id WHERE mvc_post.id = :pid');
+            
+            $req->bindValue(':pid', (int) $postId, \PDO::PARAM_INT);
+            $req->setFetchMode(\PDO::FETCH_ASSOC);
+            $req->execute();
+            
             $post = $req->fetch();
+            
+            // Object mapping :
+            $post_line = ["id" => $post['id'], "title" => $post['title'], "content" => $post['content'], "dateCreation" => $post['dateCreation']]; // first array with post details
+            $author_line = ["id" => (int) $post['uid'], "user_name" => $post['user_name'], "user_email" => $post['user_email'], "user_role" => $post['user_role']]; // second array with author details
+            
+            $author = new User($author_line);
+            $cur_post = new Post($post_line);
+            $cur_post->setAuthor($author);
+            
+            $post = $cur_post;
+            
+            $req->closeCursor();
         }
         catch (PDOException $e) {
             echo "Error: " . $e->getMessage();

@@ -57,7 +57,7 @@ class __TwigTemplate_e33ae2a9737b898013fbc39b479a42a0e7734881e94423c5aee265a78ff
 
 <h1>Mon super blog !</h1>
 <p>
-\t<a href=\"index.php\">Retour � la liste des billets</a>
+\t<a href=\"index.php\">Return to listing of posts</a>
 </p>
 
 <div class=\"news\">
@@ -66,13 +66,15 @@ class __TwigTemplate_e33ae2a9737b898013fbc39b479a42a0e7734881e94423c5aee265a78ff
         // line 18
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "title", array()), "html", null, true);
         echo " <em>le ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "creation_date_fr", array()), "html", null, true);
-        echo "</em>
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "dateCreation", array()), "html", null, true);
+        echo "</em> by <i> ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "author", array()), "userName", array()), "html", null, true);
+        echo "</i>
 \t</h3>
 
 \t<p>";
         // line 21
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "content", array()), "html", null, true);
+        echo twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "content", array());
         echo "</p>
 </div>
 
@@ -132,7 +134,7 @@ class __TwigTemplate_e33ae2a9737b898013fbc39b479a42a0e7734881e94423c5aee265a78ff
 
     public function getDebugInfo()
     {
-        return array (  120 => 37,  111 => 35,  106 => 33,  100 => 32,  97 => 31,  93 => 30,  87 => 27,  84 => 26,  82 => 25,  75 => 21,  67 => 18,  56 => 9,  53 => 8,  39 => 2,  15 => 1,);
+        return array (  122 => 37,  113 => 35,  108 => 33,  102 => 32,  99 => 31,  95 => 30,  89 => 27,  86 => 26,  84 => 25,  77 => 21,  67 => 18,  56 => 9,  53 => 8,  39 => 2,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -149,15 +151,15 @@ block head %} {{ parent() }}
 
 <h1>Mon super blog !</h1>
 <p>
-\t<a href=\"index.php\">Retour � la liste des billets</a>
+\t<a href=\"index.php\">Return to listing of posts</a>
 </p>
 
 <div class=\"news\">
 \t<h3>
-\t\t{{post.title}} <em>le {{post.creation_date_fr}}</em>
+\t\t{{post.title}} <em>le {{post.dateCreation}}</em> by <i> {{ post.author.userName }}</i>
 \t</h3>
 
-\t<p>{{post.content}}</p>
+\t<p>{{post.content | raw }}</p>
 </div>
 
 <h2>Commentaires</h2>

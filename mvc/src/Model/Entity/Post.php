@@ -1,14 +1,12 @@
 <?php
 declare(strict_types = 1);
+
 namespace OC\Model\Entity;
 
 /**
  * This is the Post Entity
- *
  * To be used for hydratation
- *
- * @see Markdown
- * @todo - implement hydratation
+ * @see Boyman10
  */
 class Post extends Model
 {
@@ -21,6 +19,14 @@ class Post extends Model
     private $content;
     private $title;
     private $dateCreation;
+    
+    /**
+     * Waking up properly after unserializing...
+     */
+    public function __wakeup()
+    {
+        $this->id = (int) $this->id;
+    }
     
     
     public function getId() {
