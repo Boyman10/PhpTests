@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Line drawing</title>
+    
+    
+</head>
+
+<body>
+
+<div id="lineDrawing">
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="59"
+   height="15"
+   viewBox="0 0 59 15"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91pre4 r13712"
+   sodipodi:docname="logo.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6"
+     inkscape:cx="31.339872"
+     inkscape:cy="18.206252"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     units="px" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-1037.3622)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-1.5332031"
+       y="1051.2324"
+       id="text4136"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4138"
+         x="-1.5332031"
+         y="1051.2324">HOSTN</tspan></text>
+  </g>
+</svg>
+</div>
+
+
+<div id="customBezier">
+	<div class="el">HOSTE</div>
+</div>
+
+<footer>
+<p>
+Using animate.js<br/>
+https://github.com/juliangarnier/anime
+</p>
+</footer>
+<script src="lib/anime.js"></script>
+<script type="text/javascript">
+var customBezier = anime({
+	  targets: '#customBezier .el',
+	  translateX: 250,
+	  easing: [.91,-0.54,.29,1.56]
+	});
+	
+	
+var lineDrawing = anime({
+	  targets: '#lineDrawing .lines path',
+	  strokeDashoffset: [anime.setDashoffset, 0],
+	  easing: 'easeInOutSine',
+	  duration: 1500,
+	  delay: function(el, i) { return i * 250 },
+	  direction: 'alternate',
+	  loop: true
+	});
+</script>
+</body>
+</html>
