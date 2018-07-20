@@ -50,6 +50,36 @@ class PostManager extends Manager
         
         return $posts;
     }
+    
+    /**
+     * @TODO TO BE TESTED
+     */
+    public function getList($debut = -1, $limite = -1)
+    {
+        $sql = 'SELECT id, auteur, titre, contenu, dateAjout, dateModif FROM news ORDER BY id DESC';
+        
+        // On vérifie l'intégrité des paramètres fournis.
+        if ($debut != -1 || $limite != -1)
+        {
+            $sql .= ' LIMIT '.(int) $limite.' OFFSET '.(int) $debut;
+        }
+        
+        $requete = $this->db->query($sql);
+        $requete->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'News');
+        
+        $listeNews = $requete->fetchAll();
+        
+        // On parcourt notre liste de news pour pouvoir placer des instances de DateTime en guise de dates d'ajout et de modification.
+        foreach ($listeNews as $news)
+        {
+            $news->setDateAjout(new DateTime($news->dateAjout()));
+            $news->setDateModif(new DateTime($news->dateModif()));
+        }
+        
+        $requete->closeCursor();
+        
+        return $listeNews;
+    }
 
     public function getPost($postId)
     {
