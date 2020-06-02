@@ -1,0 +1,14 @@
+ul {
+  list-style: none;
+  text-align: right;
+}
+ul li {
+  display: inline;
+  font-size: 3rem;
+  color: #D6FFF5;
+}
+ul li :hover {
+  color: #001534;
+}
+
+/*# Watch out the space after the LI ! */

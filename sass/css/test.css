@@ -1,0 +1,34 @@
+h1 {
+  color: #15DEA5;
+  font-size: 6rem;
+  font-weight: 100;
+  line-height: 1.7;
+}
+
+body {
+  background-color: darkslategray;
+  color: white;
+}
+
+.header {
+  background-color: #15DEA5;
+}
+
+.form__heading {
+  text-shadow: 2em 2em lightgray;
+}
+
+ul {
+  list-style: none;
+  text-align: center;
+}
+ul li {
+  display: inline;
+  font-size: 3rem;
+  color: #D6FFF5;
+}
+ul li:hover {
+  color: #001534;
+}
+
+/*# sourceMappingURL=test.css.map */

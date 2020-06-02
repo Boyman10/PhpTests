@@ -1,0 +1,55 @@
+$color-primary: #15DEA5;
+$heading-shadow-size: 2em;
+$blue: #0c2461;
+
+@mixin heading-shadow($colour:  lightness-shift($color-primary), $size: $heading-shadow-size){
+    text-shadow: $size $size $colour;
+  }
+
+@function lightness-shift($colour){
+    @if ( lightness($colour) < 25% ) {
+        @return lighten($colour, 10%);
+    } @else {
+        @return darken($colour, 10%);
+    }
+}
+
+%typography {
+    color: $color-primary;
+    font-size: 6rem;
+    font-weight: 100;
+    line-height: 1.7;
+}
+
+h1 {
+    @extend %typography;
+}
+
+body {
+    background-color: darkslategray;
+    color: white;
+}
+  
+.header {
+    background-color: $color-primary;
+}
+
+.form {
+    &__heading {
+        @include heading-shadow(lightgray);
+    }
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+        li {
+  
+           display: inline;
+          font-size: 3rem;
+          color: #D6FFF5;
+          &:hover {
+              color: #001534;
+          }
+        }
+  }
